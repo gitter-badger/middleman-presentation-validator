@@ -1,19 +1,11 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'presentations/load'
-  end
-
-  resources 'presentations', only: [:show, :index, :destroy]
-
-  resources 'presentations', only: [:show, :index, :destroy] do
-    resources 'releases', only: [:show, :destroy]
-  end
+  resources 'builds', only: [:show, :index, :destroy, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'presentations#index'
+  root 'builds#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
