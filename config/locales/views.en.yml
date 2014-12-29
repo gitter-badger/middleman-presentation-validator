@@ -1,6 +1,9 @@
 en:
   views:
     application:
+      meta:
+        title: Middleman Presentation Builder
+        description: This webapplication gives information about available presentations and makes them available for download.
       dialogs:
         confirmation: Are you sure?
       actions: Actions
@@ -15,5 +18,8 @@ en:
         pretext: 'You are here:'
         links:
           <<: *links
+    builds:
+      new:
+        link: New Build
 
 

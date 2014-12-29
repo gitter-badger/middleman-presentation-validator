@@ -1,62 +1,44 @@
-require 'rss'
-
-Given(/^a presentation registry at "(.*?)"$/) do |directory|
-  create_dir directory
-  step %(I cd to "#{directory}")
+When(/^I create a zip archive named "(.*?)" from directory "(.*?)"$/) do |zipfile_name, directory|
+  Zip::File.open(zipfile_name, Zip::File::CREATE) do |z|
+    Dir.glob(File.join(directory, '**', '*')).each do |filename|
+      z.add(
+        Pathname.new(filename).relative_path_from(
+          Pathname.new(File.dirname(directory))
+        ).to_s, filename
+      )
+    end
+  end
 end
 
-Given(/^a middleman presentation config file with:$/) do |string|
-  step %(a file named ".middleman-presentation.yaml" with:), string
+When(/^I succefully send a file named "(.*?)"$/) do |file|
+  visit('/presentation/build')
+  attach_file('source_presentation', file)
+  click_button('upload')
+
+  step %(the status code is "200")
 end
 
-Given(/^a presentation fixture "(.*?)"$/) do |name|
-  create name.to_sym
+Then(/the status code is "(.*?)"/) do |code|
+  expect(page.status_code).to eq code.to_i
 end
 
-Given(/^a presentation fixture "(.*?)" with:$/) do |name, attributes|
-  create name.to_sym, attributes.hashes.each_with_object({}) { |e, a| a[e['attribute']] = e['value'] }
+When(/^I send a valid presentation as zip file$/) do
+  zipfile                = Tempfile.new(%w(presentation .src.zip))
+  presentation_directory = absolute_path('.')
+
+  step %(I create a zip archive named "#{zipfile.path}" from directory "#{presentation_directory}")
+  step %(I succefully send a file named "#{zipfile.path}")
 end
 
-Given(/^a presentation "(.*?)" with config file:$/) do |name, config|
-  step %(a presentation registry at "#{ENV['PRESENTATIONS_DIRECTORY']}")
-  step %(a middleman presentation config file with:), config
-end
+Then(/^I get back a build version of my presentation$/) do
+  zipfile = Tempfile.new(%w(presentation build.zip))
+  zipfile.write page.body
+  binding.pry
+  zipfile.close
 
-When(/^I request a list of presentations as json$/) do
-  visit('/presentations.json')
-end
+  Zip::File.open(zipfile.path) do |z|
+    entry = z.glob('*server*').first
 
-When(/^I request to find new presentations$/) do
-  visit('/admin/presentations/load')
-end
-
-Then(/^I should see:$/) do |string|
-  expect(page).to have_content string
-end
-
-Then(/^I should see information about the presentation "(.*?)" in json response$/) do |title|
-  presentations = Array(JSON.parse(page.body))
-  result = presentations.any? { |p| p['presentation']['title'] == title }
-
-  expect(result).to be true
-end
-
-When(/^I request a rss feed for available presentations$/) do
-  visit('/presentations.rss')
-end
-
-Then(/^I should see information about the presentation "(.*?)" in rss feed$/) do |title|
-  feed = RSS::Parser.parse(page.body)
-
-  result = feed.items.any? { |i| i.title == title }
-  expect(result).to be true
-end
-
-When(/^I request information about presentation "(.*?)" as json$/) do |name|
-  visit("/presentations/#{name}.json")
-end
-
-Then(/^I should see the title "(.*?)" in json response$/) do |title|
-  presentation = JSON.parse(page.body)
-  expect(presentation['presentation']['title']).to eq title
+    expect(entry).not_to be_nil
+  end
 end

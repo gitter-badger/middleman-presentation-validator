@@ -1,2 +1,8 @@
+- content_for :navigation_actions do
+  = link_to new_build_path, class: 'fe-button-slim-new' do
+    %i.fe-icon.fe-icon-slim.fe-icon-item-new
+    = t('views.builds.new.link')
+
 %h1 Builds#index
 %p Find me in app/views/builds/index.html.haml
+

@@ -1,9 +1,32 @@
-.fe-button-danger {
+.fe-button-destroy {
   @extend .btn;
   @extend .btn-danger;
 }
 
-.fe-button-slim-danger {
-  @extend .fe-button-danger;
+.fe-button-slim-destroy {
+  @extend .fe-button-destroy;
   @extend .btn-xs;
+}
+
+.fe-button-new {
+  @extend .btn;
+  @extend .btn-success;
+}
+
+.fe-button-slim-new {
+  @extend .fe-button-new;
+  @extend .btn-xs;
+}
+
+.fe-button-slim-new a:link,
+.fe-button-slim-new a:visited,
+.fe-button-slim-new a:focus,
+.fe-button-slim-new a:active {
+  color: $fe-color-white;
+  text-decoration: none;
+}
+
+.fe-button-slim-new a:hover {
+  color: $fe-color-white;
+  text-decoration: underline;
 }

@@ -5,9 +5,9 @@
     %meta{'http-equiv' => 'X-UA-Compatible', content: 'IE=edge,chrome=1'}
     / Use title if defined by view
     %title
-      = yield(:title) || 'Middleman Presentation Registry'
+      = yield(:title) || t('views.application.meta.title')
 
-    %meta{name: 'description', content: 'This webapplication gives information about available presentations and makes them available for download.'}
+    %meta{name: 'description', content: t('views.application.meta.description')}
     %meta{name: 'viewport', content: 'width=device-width'}
 
     / Place favicon.ico and apple-touch-icon.png in the root directory
@@ -18,9 +18,15 @@
     %nav.fe-navigation
       %ul.fe-navigation-bar
         %li.fe-navigation-links
-          = link_to t('views.application.main_navigation.links.root'), root_path
-        %li
-          = link_to t('views.application.main_navigation.links.presentations'), presentations_path
+          = link_to root_path do
+            %i.fe-icon.fe-icon-slim.fe-icon-home
+            = t('views.application.main_navigation.links.root')
+        %li.fe-navigation-links
+          = link_to builds_path do
+            %i.fe-icon.fe-icon-slim.fe-icon-buildjob
+            = t('views.application.main_navigation.links.builds')
+        %li.fe-navigation-actions
+          = yield :navigation_actions
       = breadcrumbs class: 'fe-navigation-breadcrumbs', current_class: 'fe-navigation-breadcrumbs-current', fragment_class: 'fe-navigation-breadcrumbs-links', pretext_class: 'fe-navigation-breadcrumbs-pretext', separator: '/'
   %section.fe-content
     %main
