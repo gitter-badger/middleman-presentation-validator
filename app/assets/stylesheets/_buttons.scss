@@ -1,0 +1,9 @@
+.fe-button-danger {
+  @extend .btn;
+  @extend .btn-danger;
+}
+
+.fe-button-slim-danger {
+  @extend .fe-button-danger;
+  @extend .btn-xs;
+}

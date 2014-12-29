@@ -1,0 +1,32 @@
+a.fe-external-url:after {
+  @extend i.fe-icon;
+  @extend .fe-icon-external-url:before;
+  margin-left: 12px;
+  margin-right: 12px;
+  font-size: 0.7em;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  color: black;
+}
+
+a:-moz-any-link {
+  text-decoration: none;
+  color: black;
+}
+
+a:link,
+a:visited,
+a:focus,
+a:active,
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+

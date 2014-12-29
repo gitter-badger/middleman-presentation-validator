@@ -1,0 +1,74 @@
+.fe-project {
+  @extend .fe-item;
+}
+
+.fe-project h1 {
+  @extend .fe-item-h1;
+}
+
+.fe-project > a {
+  flex: 0 0 auto;
+}
+
+.fe-project-details {
+  @extend .fe-item-details
+}
+
+.fe-project-details > li {
+  display: flex;
+  align-items: center;
+}
+
+.fe-project-image {
+  @extend .fe-item-image;
+}
+
+.fe-project-name {
+  @extend .fe-item-title;
+}
+
+.fe-project-name a:hover {
+  text-decoration: underline;
+}
+
+.fe-project-description {
+  @extend .fe-item-description;
+}
+
+.fe-project-homepage {
+  @extend .fe-item-metadata;
+  margin-left: 0;
+}
+
+.fe-project-stargazers {
+  @extend .fe-item-metadata;
+}
+
+.fe-project-forks {
+  @extend .fe-item-metadata;
+}
+
+a.fe-project-more {
+  @extend .fe-color-grey;
+  font-size: 0.9em;
+}
+
+.fe-project-homepage a:link,
+.fe-project-homepage a:visited,
+.fe-project-homepage a:focus,
+.fe-project-homepage a:active,
+.fe-project-homepage a:hover {
+  @extend .fe-color-grey;
+}
+
+.fe-project-homepage .fe-icon-project-homepage:before {
+  @extend .fe-color-grey;
+}
+
+.fe-project-stargazers .fe-icon-project-stargazers:before {
+  @extend .fe-color-grey;
+}
+
+.fe-project-forks .fe-icon-project-forks:before {
+  @extend .fe-color-grey;
+}

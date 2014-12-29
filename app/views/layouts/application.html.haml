@@ -1,0 +1,32 @@
+!!! 5
+%html
+  %head
+    %meta{charset: 'utf-8'}
+    %meta{'http-equiv' => 'X-UA-Compatible', content: 'IE=edge,chrome=1'}
+    / Use title if defined by view
+    %title
+      = yield(:title) || 'Middleman Presentation Registry'
+
+    %meta{name: 'description', content: 'This webapplication gives information about available presentations and makes them available for download.'}
+    %meta{name: 'viewport', content: 'width=device-width'}
+
+    / Place favicon.ico and apple-touch-icon.png in the root directory
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+%body.fe-main
+  %header
+    %nav.fe-navigation
+      %ul.fe-navigation-bar
+        %li.fe-navigation-links
+          = link_to t('views.application.main_navigation.links.root'), root_path
+        %li
+          = link_to t('views.application.main_navigation.links.presentations'), presentations_path
+      = breadcrumbs class: 'fe-navigation-breadcrumbs', current_class: 'fe-navigation-breadcrumbs-current', fragment_class: 'fe-navigation-breadcrumbs-links', pretext_class: 'fe-navigation-breadcrumbs-pretext', separator: '/'
+  %section.fe-content
+    %main
+      = yield
+  %footer.fe-footer
+    %span.fe-copyright
+      &copy; 2014. fedux.org. All rights reserved.
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = javascript_include_tag 'modernizr/modernizr', 'data-turbolinks-track' => true

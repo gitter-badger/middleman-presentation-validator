@@ -1,0 +1,93 @@
+.fe-talk {
+  @extend .fe-item;
+}
+
+.fe-talk h1 {
+  @extend .fe-item-h1;
+}
+
+.fe-project > a {
+  flex: 0 0 auto;
+}
+
+.fe-talk-details {
+  @extend .fe-item-details
+}
+
+.fe-talk-details > li {
+  display: flex;
+  align-items: center;
+}
+
+.fe-talk-image {
+  @extend .fe-item-image;
+}
+
+.fe-talk-title {
+  @extend .fe-item-title;
+}
+
+.fe-talk-name a:hover {
+  text-decoration: underline;
+}
+
+.fe-talk-description {
+  @extend .fe-item-description;
+  max-width: 600px;
+}
+
+.fe-talk-date {
+  @extend .fe-color-grey;
+  @extend .fe-item-metadata;
+  @extend .fe-icon-start;
+}
+
+.fe-talk-conference{
+  @extend .fe-item-metadata;
+}
+
+.fe-talk-language{
+  @extend .fe-color-grey;
+  @extend .fe-item-metadata;
+}
+
+.fe-talk-download {
+  @extend .fe-item-metadata;
+}
+
+.fe-talk-download a:link,
+.fe-talk-download a:visited,
+.fe-talk-download a:focus,
+.fe-talk-download a:active,
+.fe-talk-download a:hover {
+  @extend .fe-color-grey;
+}
+
+.fe-talk-start {
+  @extend .fe-item-metadata;
+}
+
+.fe-talk-start a:link,
+.fe-talk-start a:visited,
+.fe-talk-start a:focus,
+.fe-talk-start a:active,
+.fe-talk-start a:hover {
+  @extend .fe-color-grey;
+}
+
+.fe-talk-conference a:link,
+.fe-talk-conference a:visited,
+.fe-talk-conference a:focus,
+.fe-talk-conference a:active,
+.fe-talk-conference a:hover {
+  @extend .fe-color-grey;
+}
+
+.fe-talk-download .fe-icon-talk-download:before {
+  @extend .fe-color-grey;
+}
+
+.fe-talk-date .fe-icon-talk-date:before {
+  @extend .fe-color-grey;
+  @extend .fe-icon-start;
+}

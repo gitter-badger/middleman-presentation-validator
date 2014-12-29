@@ -1,0 +1,28 @@
+blockquote p {
+  display: inline;
+}
+blockquote {
+  box-shadow: none;
+  position: relative;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  background: #f9f9f9;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  display: block;
+  font-size: 10em;
+  position: absolute;
+  left: -0.5em;
+  top: 0.3em;
+  content: open-quote;
+  color: #ff530a;
+}
+blockquote cite:before {
+  content: "\2014 \2009";
+}
+blockquote cite {
+  font-size: 0.7em;
+  color: grey;
+  display: block;
+}

@@ -1,0 +1,32 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  -webkit-hyphens: manual;
+  -moz-hyphens: manual;
+  hyphens: manual;
+  word-wrap: normal;
+  line-height: 1;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+h1 {
+  font-size: 2rem;
+  text-decoration: underline;
+  -moz-text-decoration-style: dotted;
+  padding-bottom: 15px;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1rem;
+  text-transform: none;
+}

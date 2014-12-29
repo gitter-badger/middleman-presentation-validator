@@ -1,0 +1,33 @@
+{
+  "name": "middleman-presentation-registry",
+  "version": "0.0.1",
+  "authors": [
+    "Max Meyer <dev@fedux.org>"
+  ],
+  "description": "registry for middleman-presentation presentations",
+  "keywords": [
+    "web",
+    "middleman-presentation",
+    "slides",
+    "presentation"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.fedux.org",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.11",
+    "bootstrap-sass-official": "3.2.0",
+    "normalize.css": "latest",
+    "fontawesome": ">= 4.0.3",
+    "open-sans": ">= 1.1.0",
+    "inconsolata": "latest",
+    "modernizr": "latest"
+  }
+}

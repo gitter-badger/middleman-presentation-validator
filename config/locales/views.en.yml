@@ -1,0 +1,19 @@
+en:
+  views:
+    application:
+      dialogs:
+        confirmation: Are you sure?
+      actions: Actions
+      buttons:
+        destroy: Delete
+        create: New
+      main_navigation:
+        links: &links
+          root: Home
+          builds: Builds
+      breadcrumbs:
+        pretext: 'You are here:'
+        links:
+          <<: *links
+
+

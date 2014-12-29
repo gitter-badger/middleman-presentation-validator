@@ -1,0 +1,39 @@
+.hljs {
+  background: #3f3f3f;
+}
+
+code {
+  font-family: "Inconsolata", monospace;
+  color: #8f8f8f;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: bold;
+  .fe-code-inline {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: .1em;
+  }
+}
+
+pre {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  display: block;
+  width: 100%;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  background: #3f3f3f;
+  color: #dcdcdc;
+  border-radius: .3em;
+  padding: 0.5em;
+  code {
+    font-size: 1.3em;
+    max-width: 960px;
+    max-height: 700px;
+    height: 100%;
+    width: 100%;
+    .fe-code-blank {
+      padding: 0px;
+    }
+  }
+}

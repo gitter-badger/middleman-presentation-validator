@@ -1,0 +1,148 @@
+i.fe-icon {
+  @extend .fa;
+  margin-left: 12px;
+  margin-right: 12px;
+  color: #616161;
+  font-style: normal;
+}
+
+.fe-icon-stack {
+  @extend .fa-stack;
+}
+
+i.fe-icon-slim {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.fe-icon-start {
+  margin-left: 0;
+}
+
+i.fe-icon-start {
+  margin: 0;
+}
+
+.fe-icon-color-grey:before {
+  @extend .fe-color-grey;
+}
+
+.fe-icon-print:before {
+  // fa-print
+  content: "\f02f";
+}
+
+.fe-icon-hint:before {
+  // fa-exclamation-circle
+  content: "\f06a";
+}
+
+.fe-icon-well-done:before {
+  // fa-plus-circle
+  content: "\f055";
+}
+
+.fe-icon-existing-feature:before {
+  // fa-check-circle-o
+  content: "\f05d";
+}
+
+.fe-icon-missing-feature:before {
+  // fa-circle-o
+  content: "\f10c";
+}
+
+.fe-icon-question:before {
+  // fa-question-circle
+  content: "\f059";
+}
+
+.fe-icon-contact-phone:before {
+  // fa-phone
+  content: "\f095";
+}
+
+.fe-icon-contact-mail:before {
+  // fa-envelope
+  content: "\f0e0";
+}
+
+.fe-icon-contact-github:before {
+  // fa-github
+  content: "\f09b";
+}
+
+.fe-icon-project-homepage:before {
+  // fa-github
+  content: "\f09b";
+}
+
+.fe-icon-copyright:before {
+  // fa-copyright
+  content: "\f1f9";
+}
+
+.fe-icon-external-url:before {
+  // fa-external-link
+  content: "\f08e";
+}
+
+.fe-icon-the-end:before {
+  // fa-flag-checkered
+  content: "\f11e";
+}
+
+.fe-icon-idea:before {
+  // fa-lightbulb-o
+  content: "\f0eb";
+}
+
+.fe-icon-item-stargazers:before {
+  // fa-star
+  content: "\f005";
+}
+
+.fe-icon-item-forks:before {
+  // fa-code-fork
+  content: "\f126";
+}
+
+.fe-icon-item-date:before {
+  // fa-calendar
+  content: "\f073";
+}
+
+.fe-icon-item-download:before {
+  // fa-download
+  content: "\f019";
+}
+
+.fe-icon-item-conference:before {
+  // fa-conference
+  content: "\f0e6";
+}
+
+.fe-icon-item-language:before {
+  // fa-language
+  content: "\f1ab";
+}
+
+.fe-icon-item-start:before {
+  // fa-caret-right
+  content: "\f0da";
+}
+
+.fe-icon-item-tags:before {
+  // fa-tags
+  content: "\f02c";
+}
+
+.fe-icon-item-author:before {
+  // fa-pencil
+  content: "\f040";
+}
+
+.fe-icon-breadcrumb:before {
+  // fa-caret-right
+  content: "\f0da";
+}

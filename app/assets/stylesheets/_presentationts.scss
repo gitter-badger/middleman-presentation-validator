@@ -1,0 +1,93 @@
+.fe-presentation {
+  @extend .fe-item;
+}
+
+.fe-presentation h1 {
+  @extend .fe-item-h1;
+}
+
+.fe-project > a {
+  flex: 0 0 auto;
+}
+
+.fe-presentation-details {
+  @extend .fe-item-details
+}
+
+.fe-presentation-details > li {
+  display: flex;
+  align-items: center;
+}
+
+.fe-presentation-image {
+  @extend .fe-item-image;
+}
+
+.fe-presentation-title {
+  @extend .fe-item-title;
+}
+
+.fe-presentation-name a:hover {
+  text-decoration: underline;
+}
+
+.fe-presentation-description {
+  @extend .fe-item-description;
+  max-width: 600px;
+}
+
+.fe-presentation-date {
+  @extend .fe-color-grey;
+  @extend .fe-item-metadata;
+  @extend .fe-icon-start;
+}
+
+.fe-presentation-conference{
+  @extend .fe-item-metadata;
+}
+
+.fe-presentation-language{
+  @extend .fe-color-grey;
+  @extend .fe-item-metadata;
+}
+
+.fe-presentation-download {
+  @extend .fe-item-metadata;
+}
+
+.fe-presentation-download a:link,
+.fe-presentation-download a:visited,
+.fe-presentation-download a:focus,
+.fe-presentation-download a:active,
+.fe-presentation-download a:hover {
+  @extend .fe-color-grey;
+}
+
+.fe-presentation-start {
+  @extend .fe-item-metadata;
+}
+
+.fe-presentation-start a:link,
+.fe-presentation-start a:visited,
+.fe-presentation-start a:focus,
+.fe-presentation-start a:active,
+.fe-presentation-start a:hover {
+  @extend .fe-color-grey;
+}
+
+.fe-presentation-conference a:link,
+.fe-presentation-conference a:visited,
+.fe-presentation-conference a:focus,
+.fe-presentation-conference a:active,
+.fe-presentation-conference a:hover {
+  @extend .fe-color-grey;
+}
+
+.fe-presentation-download .fe-icon-presentation-download:before {
+  @extend .fe-color-grey;
+}
+
+.fe-presentation-date .fe-icon-presentation-date:before {
+  @extend .fe-color-grey;
+  @extend .fe-icon-start;
+}

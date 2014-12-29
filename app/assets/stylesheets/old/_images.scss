@@ -1,0 +1,19 @@
+// $fe-img-path: image-path('') !default;
+$fe-img-path: '/img' !default;
+
+div.fe-logo-contact {
+  background-image: url("#{$fe-img-path}/logo-contact.png");
+  background-repeat: no-repeat;
+  height: 390px;
+  width: 190px;
+  background-size: 100%;
+}
+
+div.fe-logo-question {
+  background-image: url("#{$fe-img-path}/logo-question.png");
+  background-repeat: no-repeat;
+  height: 390px;
+  width: 190px;
+  margin: 0px auto;
+  background-size: 100%;
+}

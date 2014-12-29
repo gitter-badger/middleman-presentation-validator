@@ -1,0 +1,18 @@
+en:
+  activerecord:
+    attributes:
+      build: &build_attributes
+        date: Date
+        result: Result
+        error_message: Error Message
+    models:
+      presentation: Presentation
+      release: Release
+      author: Author
+      speaker: Speaker
+      person:
+        one: Person
+        many: People
+build:
+  fields:
+    <<: &build_attributes
