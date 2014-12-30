@@ -12,6 +12,7 @@
 
     / Place favicon.ico and apple-touch-icon.png in the root directory
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = yield(:stylesheets)
     = csrf_meta_tags
 %body.fe-main
   %header
@@ -22,15 +23,14 @@
             %i.fe-icon.fe-icon-slim.fe-icon-home
             = t('views.application.main_navigation.links.root')
         %li.fe-navigation-links
-          = link_to builds_path do
+          = link_to build_jobs_path do
             %i.fe-icon.fe-icon-slim.fe-icon-buildjob
-            = t('views.application.main_navigation.links.builds')
+            = t('views.application.main_navigation.links.buildjobs')
         %li.fe-navigation-actions
           = yield :navigation_actions
       = breadcrumbs class: 'fe-navigation-breadcrumbs', current_class: 'fe-navigation-breadcrumbs-current', fragment_class: 'fe-navigation-breadcrumbs-links', pretext_class: 'fe-navigation-breadcrumbs-pretext', separator: '/'
   %section.fe-content
-    %main
-      = yield
+    = yield
   %footer.fe-footer
     %span.fe-copyright
       &copy; 2014. fedux.org. All rights reserved.

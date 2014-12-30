@@ -11,18 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141229175100) do
+ActiveRecord::Schema.define(version: 20141229214225) do
+
+  create_table "build_jobs", force: :cascade do |t|
+    t.integer  "status_id"
+    t.string   "output"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.time     "start_time"
+    t.time     "stop_time"
+    t.string   "source_file"
+    t.string   "build_file"
+    t.boolean  "add_static_servers"
+  end
 
   create_table "build_statuses", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "builds", force: :cascade do |t|
-    t.date     "date"
-    t.integer  "status_id"
-    t.string   "output"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

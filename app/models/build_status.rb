@@ -1,3 +1,3 @@
 class BuildStatus < ActiveRecord::Base
-  has_many :builds
+  has_many :build_jobs
 end

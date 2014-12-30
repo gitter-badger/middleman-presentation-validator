@@ -13,13 +13,14 @@ en:
       main_navigation:
         links: &links
           root: Home
-          builds: Builds
+          build_jobs: Build Jobs
       breadcrumbs:
         pretext: 'You are here:'
         links:
           <<: *links
-    builds:
+    build_jobs:
       new:
-        link: New Build
+        link: Create Build Job
+        headline: Create a new Build Job
 
 

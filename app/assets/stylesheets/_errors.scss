@@ -1,0 +1,54 @@
+.fe-error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fe-error-message h1 {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.fe-error-message p {
+  font-size: 1rem;
+}
+
+.fe-error-message main,
+.fe-error-message footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 0px;
+  min-width: 100%;
+  border: 2px solid $fe-color-grey-light;
+}
+
+
+.fe-error-message main {
+  font-size: 2em;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top: 6px solid $fe-color-red-dark;
+  border-bottom: 0px;
+}
+
+
+.fe-error-message footer {
+  background-color: $fe-color-grey-lightest;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: center;
+}
+
+.fe-error-message a:link,
+.fe-error-message a:visited,
+.fe-error-message a:focus,
+.fe-error-message a:active {
+  color: $fe-color-grey-darker;
+  text-decoration: none;
+}
+
+.fe-error-message a:hover {
+  color: $fe-color-black;
+}

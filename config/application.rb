@@ -25,5 +25,8 @@ module MiddlemanPresentationBuilder
 
     # Autoload lib
     config.autoload_paths << Rails.root.join('lib')
+
+    # Use self for handling errors
+    config.exceptions_app = self.routes
   end
 end

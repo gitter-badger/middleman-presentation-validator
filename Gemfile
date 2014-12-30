@@ -83,3 +83,8 @@ gem 'will_paginate'
 gem 'draper'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'ransack'
+
+gem 'formtastic'
+
+gem 'lograge'
+gem 'browser_details'

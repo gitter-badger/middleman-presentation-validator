@@ -1,0 +1,8 @@
+#error_explanation
+  %h2
+    = t('activerecord.errors.save', count: saved_object.errors.count)
+
+  %ul
+    - saved_object.errors.full_messages.each do |message|
+      %li
+        = message

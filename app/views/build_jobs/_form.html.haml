@@ -1,0 +1,10 @@
+= form_for(@build_job, html: { class: 'fe-form' }) do |f|
+  - if @build_job.errors.any?
+    render partial:'errors/saved_object', object: @build_job
+
+  .fe-form-field
+    = f.label :source_file, BuildJob.human_attribute_name(:source_file), class: 'fe-form-label'
+    = f.file_field :source_file, class: 'fe-form-file-field'
+  .fe-form-field
+    = f.submit t('views.build_jobs.new.link'), class: 'fe-button-new'
+

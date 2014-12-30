@@ -1,0 +1,16 @@
+en:
+  error_pages:
+    not_found:
+      page_title: File Not Found - 404
+      title: We're sorry, but the page you were looking for doesn't exist.
+      description: You may have mistyped the address or the page may have moved
+      footer: If you are the application owner check the logs for more information.
+    server_error:
+      page_title: Internal Server Error - 500
+      title: We're sorry, but something went wrong.
+      footer: If you are the application owner check the logs for more information.
+    invalid_request:
+      page_title: Invalid Client Request - 400
+      title: We're sorry, but your presentation could not be built.
+      description: Please check if you uploaded a ZIP-file containing your presentation. Furthermore a <code>.middleman-presention.yaml</code> and a valid <code>Gemfile</code>needs to be included.
+      footer: If you are the application owner check the logs for more information.

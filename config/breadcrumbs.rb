@@ -2,13 +2,13 @@ crumb :root do
   link "Home", root_path
 end
 
-crumb :builds do
-  link I18n.t('views.application.main_navigation.links.builds'), builds_path
+crumb :build_jobs do
+  link I18n.t('views.application.main_navigation.links.build_jobs'), build_jobs_path
 end
 
-crumb :build do |build|
-  link build.id, build_path(build)
-  parent :builds
+crumb :build_job do |build_job|
+  link build_job.id, build_job_path(build_job)
+  parent :build_jobs
 end
 
 # crumb :projects do

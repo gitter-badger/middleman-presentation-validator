@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  resources 'builds', only: [:show, :index, :destroy, :create, :new]
+  resources 'build_jobs', only: [:show, :index, :destroy, :create, :new]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'builds#index'
+  root 'build_jobs#index'
+
+  match '/400', via: :all, to: 'errors#invalid_request'
+  match '/404', via: :all, to: 'errors#not_found'
+  match '/500', via: :all, to: 'errors#server_error'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

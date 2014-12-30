@@ -1,0 +1,13 @@
+.fe-form {
+  border: 3px dashed $fe-color-grey-light;
+  padding: 3em;
+  border-radius: 15px;
+}
+
+.fe-form-field {
+  margin: 5px;
+}
+
+.fe-form-field input[type=submit]{
+  margin-top: 15px;
+}
