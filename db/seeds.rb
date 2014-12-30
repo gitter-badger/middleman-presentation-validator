@@ -5,5 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-#BuildStatus.create(name: :success)
-#BuildStatus.create(name: :failed)
+BuildStatus.create(name: :success)
+BuildStatus.create(name: :failure)

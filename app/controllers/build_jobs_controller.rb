@@ -29,11 +29,13 @@ class BuildJobsController < ApplicationController
     uploaded_presentation = MiddlemanPresentationBuilder::UploadedPresentation.new(
       params['build_job']['source_file']
     )
-    builder = MiddlemanPresentationBuilder::BuildOrchestrator.new
-    built_presentation = builder.build(uploaded_presentation, add_static_servers: params['add_static_servers'] ? true : false)
+    orchestrator = MiddlemanPresentationBuilder::BuildOrchestrator.new(add_static_servers: params['add_static_servers'] == 1 ? true : false)
+    built_presentation, output, success = orchestrator.build(uploaded_presentation)
 
     @build_job.source_file = params['build_job']['source_file']
-    @build_job.build_file = File.open(built_presentation.file)
+    @build_job.build_file  = File.open(built_presentation.file)
+    @build_job.output      = output
+    @build_job.build_status      = success ? BuildStatus.find_by(name: :success) : BuildStatus.find_by(name: :failure)
     @build_job.save!
 
     respond_to do |format|

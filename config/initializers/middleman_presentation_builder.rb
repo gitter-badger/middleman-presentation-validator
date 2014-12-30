@@ -16,6 +16,10 @@ require 'middleman_presentation_builder/presentation_config'
 require 'middleman_presentation_builder/uploaded_presentation'
 require 'middleman_presentation_builder/built_presentation'
 require 'middleman_presentation_builder/presentation_builder'
+require 'middleman_presentation_builder/presentation_zipper'
+require 'middleman_presentation_builder/presentation_validator'
+require 'middleman_presentation_builder/presentation_unzipper'
+require 'middleman_presentation_builder/presentation_metadata_extractor'
 require 'middleman_presentation_builder/command'
 
 module MiddlemanPresentationBuilder

@@ -1,3 +1,8 @@
 - breadcrumb :build_job, @build_job
-%h1 Builds#show
-%p Find me in app/views/build_jobs/show.html.haml
+
+%p
+  = @build_job.title
+%p
+  = @build_job.build_status
+%code
+  = simple_format(@build_job.output)

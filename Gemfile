@@ -90,3 +90,4 @@ gem 'lograge'
 gem 'browser_details'
 gem 'geo_pattern'
 gem 'fedux_org-stdlib', '~> 0.11.7', require: false
+gem 'ruby-filemagic'
