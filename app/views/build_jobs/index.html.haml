@@ -3,6 +3,10 @@
     %i.fe-icon.fe-icon-slim.fe-icon-item-new
     = t('views.build_jobs.new.link')
 
+- breadcrumb :build_jobs
+
+= render partial: 'job', collection: @build_jobs
+
 %h1 Builds#index
 %p Find me in app/views/builds/index.html.haml
 

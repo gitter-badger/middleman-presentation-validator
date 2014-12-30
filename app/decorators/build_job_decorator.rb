@@ -1,5 +1,19 @@
+require 'fedux_org_stdlib/icon'
+
 class BuildJobDecorator < Draper::Decorator
   delegate_all
+
+  def icon
+    FeduxOrgStdlib::Icon.new(id.to_s).to_data_uri
+  end
+
+  def title
+    format('%s #%d', BuildJob.model_name.human, id)
+  end
+
+  def short_title
+    format('#%d', id)
+  end
 
   # Define presentation-specific methods here. Helpers are accessed through
   # `helpers` (aka `h`). You can override attributes, for example:

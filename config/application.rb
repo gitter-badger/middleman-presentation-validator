@@ -24,7 +24,7 @@ module MiddlemanPresentationBuilder
     config.active_record.raise_in_transactional_callbacks = true
 
     # Autoload lib
-    config.autoload_paths << Rails.root.join('lib')
+    # config.autoload_paths << Rails.root.join('lib')
 
     # Use self for handling errors
     config.exceptions_app = self.routes

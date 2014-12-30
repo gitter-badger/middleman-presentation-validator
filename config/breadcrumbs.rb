@@ -7,7 +7,7 @@ crumb :build_jobs do
 end
 
 crumb :build_job do |build_job|
-  link build_job.id, build_job_path(build_job)
+  link build_job.short_title, build_job_path(build_job)
   parent :build_jobs
 end
 

@@ -1,0 +1,8 @@
+%div.fe-build_job
+  %div.fe-icon-item-appetizer{ style: "background-image: #{job.icon}" }
+  %ul.fe-build_job-details
+    %li
+      %span.fe-build_job-title
+        = link_to build_job_path(job) do
+          %h1
+            = job.title
