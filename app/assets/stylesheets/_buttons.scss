@@ -1,6 +1,8 @@
 .fe-button-destroy {
   @extend .btn;
   @extend .btn-danger;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 .fe-button-slim-destroy {
@@ -11,6 +13,8 @@
 .fe-button-new {
   @extend .btn;
   @extend .btn-success;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 .fe-button-slim-new {
@@ -29,4 +33,27 @@
 .fe-button-slim-new a:hover {
   color: $fe-color-white;
   text-decoration: underline;
+}
+
+.fe-button-slim-destroy a:link,
+.fe-button-slim-destroy a:visited,
+.fe-button-slim-destroy a:focus,
+.fe-button-slim-destroy a:active {
+  color: $fe-color-white;
+  text-decoration: none;
+}
+
+.fe-button-slim-destroy a:hover {
+  color: $fe-color-white;
+  text-decoration: underline;
+}
+
+.fe-button-slim-new i.fe-icon-item-new:before {
+  color: $fe-color-white;
+  line-height: 1.1rem;
+}
+
+.fe-button-slim-destroy i.fe-icon-item-destroy:before {
+  color: $fe-color-white;
+  line-height: 1.1rem;
 }

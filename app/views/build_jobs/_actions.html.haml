@@ -1,0 +1,6 @@
+= link_to new_build_job_path, class: 'fe-button-slim-new' do
+  %i.fe-icon.fe-icon-slim.fe-icon-item-new
+  = t('views.build_jobs.new.link')
+= link_to build_jobs_path, class: 'fe-button-slim-destroy', method: :delete, data: { confirm: 'Are you sure?' } do
+  %i.fe-icon.fe-icon-slim.fe-icon-item-destroy
+  = t('views.build_jobs.destroy_all.link')

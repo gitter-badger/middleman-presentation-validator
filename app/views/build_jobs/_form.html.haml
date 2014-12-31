@@ -1,3 +1,6 @@
+- content_for :navigation_actions do
+  = render partial: 'actions'
+
 = form_for(@build_job, html: { class: 'fe-form' }) do |f|
   - if @build_job.errors.any?
     render partial:'errors/saved_object', object: @build_job

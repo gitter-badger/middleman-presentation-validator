@@ -1,9 +1,7 @@
 - breadcrumb :build_job, @build_job
 
 - content_for :navigation_actions do
-  = link_to new_build_job_path, class: 'fe-button-slim-new' do
-    %i.fe-icon.fe-icon-slim.fe-icon-item-new
-    = t('views.build_jobs.new.link')
+  = render partial: 'actions'
 
 %p
   = @build_job.title

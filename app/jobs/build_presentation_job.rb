@@ -12,6 +12,8 @@ class BuildPresentationJob < ActiveJob::Base
     build_job.start_time = Time.now
 
     begin
+      built_presentation = nil
+
       Timeout::timeout(Rails.configuration.x.build_timeout) do
         built_presentation, output, success = orchestrator.build(uploaded_presentation)
         build_job.stop_time    = Time.now
@@ -25,6 +27,7 @@ class BuildPresentationJob < ActiveJob::Base
       build_job.build_status = BuildStatus.find_by(name: :failure)
       build_job.save!
     ensure
+      Rails.logger.debug "Cleaning up temporary files #{[built_presentation.file].to_list}."
       MiddlemanPresentationBuilder::BuildCleaner.new.use(built_presentation.file)
     end
 

@@ -18,7 +18,8 @@ end
 
 # Precompile Bootstrap fonts
 Rails.application.config.assets.precompile << %r(bootstrap-sass-official/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff)$)
-Rails.application.config.assets.precompile += %w( modernizr/modernizr.js )
+Rails.application.config.assets.precompile << %r(fontawesome/fonts/[\w-]+\.(?:eot|svg|ttf|woff|otf)$)
+Rails.application.config.assets.precompile += %w(modernizr/modernizr.js)
 
 # Minimum Sass number precision required by bootstrap-sass
 ::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max

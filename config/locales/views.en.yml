@@ -22,5 +22,7 @@ en:
       new:
         link: Create Build Job
         headline: Create a new Build Job
+      destroy_all:
+        link: Delete All Build Jobs
 
 
