@@ -9,5 +9,8 @@
     = f.label :source_file, BuildJob.human_attribute_name(:source_file), class: 'fe-form-label'
     = f.file_field :source_file, class: 'fe-form-file-field'
   .fe-form-field
+    = f.label :add_static_servers, BuildJob.human_attribute_name(:add_static_servers), class: 'fe-form-label'
+    = f.check_box :add_static_servers, class: 'fe-form-file-field'
+  .fe-form-field
     = f.submit t('views.build_jobs.new.link'), class: 'fe-button-new'
 

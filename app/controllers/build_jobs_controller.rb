@@ -27,7 +27,8 @@ class BuildJobsController < ApplicationController
     @build_job = BuildJob.new(build_job_params)
 
     @build_job.source_file = params['build_job']['source_file']
-    @build_job.add_static_servers = params['add_static_servers'] == 1 ? true : false
+    @build_job.add_static_servers = params['build_job']['add_static_servers'] == "1" ? true : false
+    @build_job.callback_url = params['build_job']['callback_url']
     @build_job.save!
 
     BuildPresentationJob.perform_later(@build_job)

@@ -5,9 +5,15 @@
 }
 
 .fe-form-field {
-  margin: 5px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
-.fe-form-field input[type=submit]{
-  margin-top: 15px;
+.fe-form-field input[type=submit] {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.fe-form-label {
+  display: block;
 }

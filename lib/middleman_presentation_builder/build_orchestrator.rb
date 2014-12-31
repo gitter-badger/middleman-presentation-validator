@@ -15,6 +15,12 @@ module MiddlemanPresentationBuilder
       @metadata_extractor = PresentationMetadataExtractor.new
       @creator            = BuiltPresentation
       @cleaner            = BuildCleaner.new
+
+      if add_static_servers
+        Rails.logger.debug "Will add static servers to built presentation"
+      else
+        Rails.logger.debug "Will not add static servers to built presentation"
+      end
     end
 
     def build(uploaded_presentation)

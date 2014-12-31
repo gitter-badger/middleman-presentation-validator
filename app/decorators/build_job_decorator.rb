@@ -16,6 +16,8 @@ class BuildJobDecorator < Draper::Decorator
   end
 
   def duration
+    return 0 if stop_time.blank? || start_time.blank?
+
     Time.at(stop_time - start_time).utc.strftime("%H:%M:%S")
   end
 
