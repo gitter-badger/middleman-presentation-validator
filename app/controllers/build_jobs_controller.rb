@@ -4,7 +4,7 @@ class BuildJobsController < ApplicationController
   # GET /build_jobs
   # GET /build_jobs.json
   def index
-    @build_jobs = BuildJobDecorator.decorate_collection(BuildJob.all)
+    @build_jobs = BuildJobDecorator.decorate_collection(BuildJob.order(start_time: :desc))
   end
 
   # GET /build_jobs/1
@@ -26,17 +26,11 @@ class BuildJobsController < ApplicationController
   def create
     @build_job = BuildJob.new(build_job_params)
 
-    uploaded_presentation = MiddlemanPresentationBuilder::UploadedPresentation.new(
-      params['build_job']['source_file']
-    )
-    orchestrator = MiddlemanPresentationBuilder::BuildOrchestrator.new(add_static_servers: params['add_static_servers'] == 1 ? true : false)
-    built_presentation, output, success = orchestrator.build(uploaded_presentation)
-
     @build_job.source_file = params['build_job']['source_file']
-    @build_job.build_file  = File.open(built_presentation.file)
-    @build_job.output      = output
-    @build_job.build_status      = success ? BuildStatus.find_by(name: :success) : BuildStatus.find_by(name: :failure)
+    @build_job.add_static_servers = params['add_static_servers'] == 1 ? true : false
     @build_job.save!
+
+    BuildPresentationJob.perform_later(@build_job)
 
     respond_to do |format|
       if @build_job.save

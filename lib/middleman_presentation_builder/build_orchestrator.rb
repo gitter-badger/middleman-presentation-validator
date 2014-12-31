@@ -3,7 +3,7 @@ module MiddlemanPresentationBuilder
   class BuildOrchestrator
     private
 
-    attr_reader :unzipper, :zipper, :validator, :builder, :metadata_extractor, :creator
+    attr_reader :unzipper, :zipper, :validator, :builder, :metadata_extractor, :creator, :cleaner
 
     public
 
@@ -14,6 +14,7 @@ module MiddlemanPresentationBuilder
       @builder            = PresentationBuilder.new(add_static_servers: add_static_servers)
       @metadata_extractor = PresentationMetadataExtractor.new
       @creator            = BuiltPresentation
+      @cleaner            = BuildCleaner.new
     end
 
     def build(uploaded_presentation)
@@ -33,6 +34,9 @@ module MiddlemanPresentationBuilder
 
       Rails.logger.debug "Zipping built presentation in \"#{build_directory}\" and use suggested file \"#{suggested_filename}\"."
       zip_file = zipper.use(build_directory, suggested_filename)
+
+      Rails.logger.debug "Cleaning up temporary directories #{[temporary_directory].to_list}."
+      cleaner.use(temporary_directory)
 
       [creator.new(file: zip_file, suggested_filename: suggested_filename), output, success]
     rescue StandardError

@@ -20,7 +20,10 @@ require 'middleman_presentation_builder/presentation_zipper'
 require 'middleman_presentation_builder/presentation_validator'
 require 'middleman_presentation_builder/presentation_unzipper'
 require 'middleman_presentation_builder/presentation_metadata_extractor'
+require 'middleman_presentation_builder/build_cleaner'
 require 'middleman_presentation_builder/command'
 
 module MiddlemanPresentationBuilder
 end
+
+Rails.configuration.x.build_timeout = 10.minutes

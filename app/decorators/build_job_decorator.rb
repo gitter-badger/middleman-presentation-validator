@@ -15,6 +15,10 @@ class BuildJobDecorator < Draper::Decorator
     format('#%d', id)
   end
 
+  def duration
+    Time.at(stop_time - start_time).utc.strftime("%H:%M:%S")
+  end
+
   # Define presentation-specific methods here. Helpers are accessed through
   # `helpers` (aka `h`). You can override attributes, for example:
   #
