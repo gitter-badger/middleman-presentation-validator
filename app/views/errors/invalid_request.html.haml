@@ -1,0 +1,10 @@
+.fe-error-message
+  %main
+    %h1
+      = t('error_pages.invalid_request.title')
+    %p
+      = t('error_pages.invalid_request.description')
+    %p
+      = link_to t('views.application.main_navigation.links.root'), root_path
+  %footer
+    = t('error_pages.invalid_request.footer')

@@ -1,0 +1,8 @@
+.fe-error-message
+  %main
+    %h1
+      = t('error_pages.server_error.title')
+    %p
+      = link_to t('views.application.main_navigation.links.root'), root_path
+  %footer
+    = t('error_pages.server_error.footer')

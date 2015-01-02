@@ -3,9 +3,8 @@ $LOAD_PATH.unshift Rails.root.join('lib').to_s unless $LOAD_PATH.split(/:/).incl
 require 'English'
 require 'open3'
 require 'tmpdir'
-require 'zip'
-require 'zip/filesystem'
 require 'securerandom'
+require 'fedux_org_stdlib/zipper'
 
 require 'fedux_org_stdlib/core_ext/string/characterize'
 

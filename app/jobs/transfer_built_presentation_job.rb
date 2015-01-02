@@ -12,9 +12,9 @@ class TransferBuiltPresentationJob < ActiveJob::Base
     begin
       transferrer = MiddlemanPresentationBuilder::Uploader.new
       transferrer.upload build_job.callback_url, build_job.build_file.file.file
-      build_job.cleanup!(:clean, build_job)
+      build_job.cleanup! build_job
     rescue => err
-      Rails.logger.debug "Error occured while transferring presentation: #{err.message}\n#{err.backtrace}"
+      Rails.logger.debug "Error occured while transferring presentation: #{err.message}\n#{err.backtrace.join("\n")}"
       build_job.error_occured!
     end
   end

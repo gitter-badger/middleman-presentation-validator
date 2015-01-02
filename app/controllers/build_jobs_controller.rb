@@ -29,9 +29,9 @@ class BuildJobsController < ApplicationController
     @build_job.source_file = params['build_job']['source_file']
     @build_job.add_static_servers = params['build_job']['add_static_servers'] == "1" ? true : false
     @build_job.callback_url = params['build_job']['callback_url']
+    @build_job.working_directory = Dir.mktmpdir('presentation')
     @build_job.save!
-
-    BuildPresentationJob.perform_later(@build_job)
+    @build_job.unzip!(@build_job)
 
     respond_to do |format|
       if @build_job.save

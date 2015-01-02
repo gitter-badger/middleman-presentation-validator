@@ -44,7 +44,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Set queue adapter for backend processing
-  config.active_job.queue_adapter = :sidekiq
+  # config.active_job.queue_adapter = :sidekiq
+  config.active_job.queue_adapter = :delayed_job
 end
 
 Dotenv.load Rails.root.join('.env.test')

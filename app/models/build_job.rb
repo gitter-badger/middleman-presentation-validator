@@ -6,16 +6,16 @@ class BuildJob < ActiveRecord::Base
   mount_uploader :build_file, BuildFileUploader
 
   aasm do
-    state :created, initial: true, after_enter: :unzip_source_file
-    state :unzipped, after_enter: :validate_presentation
-    state :validated, after_enter: :build_presentation
+    state :created, initial: true
+    state :unzipped, after_enter: :unzip_source_file
+    state :validated, after_enter: :validate_presentation
     state :requirements_installed, after_enter: :install_requirements
     state :built, after_enter: :build_presentation
     state :zipped, after_enter: :zip_presentation
     state :transferred, after_enter: :transfer_built_presentation
     state :clean, after_enter: :cleanup_build_job
-    state :completed
     state :failure, after_enter: :cleanup_build_job
+    state :completed
 
     event :unzip do
       transitions from: :created, to: :unzipped
@@ -30,7 +30,7 @@ class BuildJob < ActiveRecord::Base
     end
 
     event :build do
-      transitions from: :validated, to: :built
+      transitions from: :requirements_installed, to: :built
     end
 
     event :zip do
@@ -42,7 +42,7 @@ class BuildJob < ActiveRecord::Base
     end
 
     event :cleanup do
-      transitions from: :transfered, to: :clean
+      transitions from: :transferred, to: :clean
     end
 
     event :finish do
@@ -52,35 +52,41 @@ class BuildJob < ActiveRecord::Base
     event :error_occured do
       transitions to: :failure
     end
+
+    event :restart do
+      transitions to: :created
+    end
   end
 
   private
 
-  def unzip_source_file(instance)
-    UnzipSourceFileJob.perform_later(instance)
+  def unzip_source_file
+    require 'pry'
+    binding.pry
+    UnzipSourceFileJob.perform_later(self)
   end
 
-  def validate_presentation(instance)
-    ValidatePresentationJob.perform_later(instance)
+  def validate_presentation
+    ValidatePresentationJob.perform_later(self)
   end
 
-  def build_presentation(instance)
-    BuildPresentationJob.perform_later(instance)
+  def build_presentation
+    BuildPresentationJob.perform_later(self)
   end
 
-  def zip_presentation(instance)
-    ZipPresentationJob.perform_later(instance)
+  def zip_presentation
+    ZipPresentationJob.perform_later(self)
   end
 
-  def transfer_built_presentation(instance)
-    TransferBuiltPresentationJob.perform_later(instance)
+  def transfer_built_presentation
+    TransferBuiltPresentationJob.perform_later(self)
   end
 
-  def install_requirements(instance)
-    InstallRequirementsJob.perform_later(instance)
+  def install_requirements
+    InstallRequirementsJob.perform_later(self)
   end
 
-  def cleanup_build_job(instance)
-    CleanupBuildJob.perform_later(instance)
+  def cleanup_build_job
+    CleanupBuildJob.perform_later(self)
   end
 end

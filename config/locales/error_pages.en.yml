@@ -14,3 +14,8 @@ en:
       title: We're sorry, but your presentation could not be built.
       description: Please check if you uploaded a ZIP-file containing your presentation. Furthermore a <code>.middleman-presention.yaml</code> and a valid <code>Gemfile</code>needs to be included.
       footer: If you are the application owner check the logs for more information.
+    error:
+      page_title: Unhandled error - 500
+      title: We're sorry, but your presentation could not be built.
+      description: An unknown error occured.
+      footer: If you are the application owner check the logs for more information.

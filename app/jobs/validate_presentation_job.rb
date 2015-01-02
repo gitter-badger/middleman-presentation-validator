@@ -2,19 +2,22 @@ class ValidatePresentationJob < ActiveJob::Base
   queue_as :default
 
   def perform(build_job)
-    if is_zip_file?(build_job.source_file.file.file) && \
-      has_gemfile?(build_job.working_directory) && \
-      has_middleman_gem_in_gemfile?(build_job.working_directory) && \
-      has_middleman_config_file?(build_job.working_directory)
+    test is_zip_file?(build_job.source_file.file.file), 'No zip file'
+    test has_gemfile?(build_job.working_directory), 'No gemfile found'
+    test has_middleman_gem_in_gemfile?(build_job.working_directory), 'No middleman gem in Gemfile'
+    test has_middleman_config_file?(build_job.working_directory), 'No middleman config file'
 
-      build_job.install!(:requirements_installed, build_job)
-    else
-      Rails.logger.debug "Error occured while validating \"#{build_job.source_file.file.file}\"."
-      build_job.error_occured!
-    end
+    build_job.install! build_job
   end
 
   private
+
+  def test(check, message)
+    unless check
+      Rails.logger.debug "Error occured while validating \"#{build_job.source_file.file.file}\": #{message}"
+      build_job.error_occured!
+    end
+  end
 
   def is_zip_file?(file)
     /Zip archive/ === FileMagic.new.file(file)

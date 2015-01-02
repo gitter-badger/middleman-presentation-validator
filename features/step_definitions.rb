@@ -1,13 +1,5 @@
 When(/^I create a zip archive named "(.*?)" from directory "(.*?)"$/) do |zipfile_name, directory|
-  Zip::File.open(zipfile_name, Zip::File::CREATE) do |z|
-    Dir.glob(File.join(directory, '**', '*')).each do |filename|
-      z.add(
-        Pathname.new(filename).relative_path_from(
-          Pathname.new(File.dirname(directory))
-        ).to_s, filename
-      )
-    end
-  end
+  Utils.zip(directory, zipfile_name)
 end
 
 When(/^I succefully send a file named "(.*?)"$/) do |file|

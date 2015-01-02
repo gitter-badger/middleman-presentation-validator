@@ -89,7 +89,11 @@ gem 'formtastic'
 gem 'lograge'
 gem 'browser_details'
 gem 'geo_pattern'
-gem 'fedux_org-stdlib', '~> 0.11.7', require: false
+gem 'fedux_org-stdlib', '~> 0.11.8', require: false
 gem 'ruby-filemagic'
 gem 'faraday'
 gem 'aasm'
+gem 'delayed_job_active_record'
+gem 'daemons'
+gem 'pg'
+gem 'middleman-presentation-helpers', '~> 0.16.rc1', require: false
