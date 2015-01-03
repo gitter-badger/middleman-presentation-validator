@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "Make sure you've got 'bower' installed on your system! Please see http://bower.io/ for more information about installing 'bower' on your system."
+
+gem install bundler && bundle install

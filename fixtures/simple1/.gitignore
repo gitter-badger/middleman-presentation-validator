@@ -1,0 +1,18 @@
+# Ignore bundler config
+/.bundle
+# Ignore the build directory
+/build
+# Ignore cache
+/.sass-cache
+/.cache
+# Ignore .DS_store file
+.DS_Store
+
+# No generated files
+*.zip
+*.tar.gz
+tmp/
+
+# local config file
+.middleman-presentation.local.yaml
+middleman-presentation.local.yaml

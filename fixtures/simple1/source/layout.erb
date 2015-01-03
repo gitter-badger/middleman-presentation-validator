@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+
+    <title><%= Middleman::Presentation.config.title %><% if Middleman::Presentation.config.subtitle %>&nbsp;&ndash;&nbsp;<%= Middleman::Presentation.config.subtitle %><% end %></title>
+
+<% if Middleman::Presentation.config.description -%>
+    <meta name="description" content="<%= Middleman::Presentation.config.description %>">
+<% end -%>
+    <meta name="author" content="<%= Middleman::Presentation.config.author %>">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <%= stylesheet_link_tag 'application' %>
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '<%= asset_path(:css, "middleman-presentation-helpers/print/pdf.css") %>';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+        window.print();
+      }
+    </script>
+
+    <!-- 
+    w[if lt IE 9]>
+    <script src="<%= asset_path(:js, 'reveal.js/lib/js/html5shiv.js') %>"></script>
+    w<![endif]
+    -->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <%= yield %>
+      </div>
+      <footer class="mp-presentation-footer">
+        <%= metadata_markup(Middleman::Presentation.config.metadata_footer, Middleman::Presentation.config.known_options) %>
+        <a href="?print-pdf" class="mp-print-link"><i class="mp-print"></i></a>
+      </footer>
+    </div>
+
+    <%= javascript_include_tag 'application' %>
+
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: '<%= Middleman::Presentation.config.width %>',
+        height: '<%= Middleman::Presentation.config.height %>',
+        // Factor of the display size that should remain empty around the content
+        margin: <%= Middleman::Presentation.config.margin %>,
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: '<%= Middleman::Presentation.config.min_scale %>',
+        maxScale: '<%= Middleman::Presentation.config.max_scale %>',
+        // Display controls in the bottom right corner
+        controls: <%= Middleman::Presentation.config.activate_controls %>,
+        // Display a presentation progress bar
+        progress: <%= Middleman::Presentation.config.activate_progress %>,
+        // Display the page number of the current slide
+        slideNumber: <%= Middleman::Presentation.config.activate_slide_number %>,
+        // Push each slide change to the browser history
+        history: <%= Middleman::Presentation.config.activate_history %>,
+        // Enable keyboard shortcuts for navigation
+        keyboard: <%= Middleman::Presentation.config.activate_keyboard %>,
+        // Enable the slide overview mode
+        overview: <%= Middleman::Presentation.config.activate_overview %>,
+        // Vertical centering of slides
+        center: <%= Middleman::Presentation.config.activate_center %>,
+        // Enables touch navigation on devices with touch input
+        touch: <%= Middleman::Presentation.config.activate_touch %>,
+        // Loop the presentation
+        loop: <%= Middleman::Presentation.config.activate_loop %>,
+        // Change the presentation direction to be RTL
+        rtl: <%= Middleman::Presentation.config.activate_rtl %>,
+        // Turns fragments on and off globally
+        fragments: <%= Middleman::Presentation.config.activate_fragments %>,
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: <%= Middleman::Presentation.config.activate_embedded %>,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: <%= Middleman::Presentation.config.auto_slide %>,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: <%= Middleman::Presentation.config.auto_slide_stoppable %>,
+        // Enable slide navigation via mouse wheel
+        mouseWheel: <%= Middleman::Presentation.config.activate_mouse_wheel %>,
+        // Hides the address bar on mobile devices
+        hideAddressBar: <%= Middleman::Presentation.config.hide_address_bar %>,
+        // Opens links in an iframe preview overlay
+        previewLinks: <%= Middleman::Presentation.config.preview_links %>,
+        // Transition style
+        transition: '<%= Middleman::Presentation.config.default_transition_type %>',
+        // Transition speed
+        transitionSpeed: '<%= Middleman::Presentation.config.default_transition_speed %>',
+        // Transition style for full page slide backgrounds
+        backgroundTransition: '<%= Middleman::Presentation.config.default_background_transition %>',
+        // Number of slides away from the current that are visible
+        viewDistance: <%= Middleman::Presentation.config.view_distance %>,
+        // Parallax background image
+        parallaxBackgroundImage: '<%= Middleman::Presentation.config.parallax_background_image %>',
+        // Parallax background size
+        parallaxBackgroundSize: '<%= Middleman::Presentation.config.parallax_background_size %>',
+        dependencies: [
+          { src: '<%= asset_path(:js, "reveal.js/lib/js/classList.js") %>', condition: function() { return !document.body.classList; } },
+          { src: '<%= asset_path(:js, "highlightjs/highlight.pack.js") %>', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '<%= asset_path(:js, "reveal.js/plugin/zoom-js/zoom.js") %>', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '<%= asset_path(:js, "reveal.js/plugin/notes/notes.js") %>', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+
+  </body>
+</html>

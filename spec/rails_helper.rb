@@ -49,9 +49,6 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 end
 
-FactoryGirl.definition_file_paths = [Rails.root.join('fixtures')]
-FactoryGirl.find_definitions
-
 RSpec.configure do |config|
   config.before(:suite) { FactoryGirl.reload }
 end

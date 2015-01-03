@@ -8,15 +8,16 @@ class ValidatePresentationJob < ActiveJob::Base
     test has_middleman_config_file?(build_job.working_directory), 'No middleman config file'
 
     build_job.install! build_job
+  rescue => err
+    binding.pry
+    Rails.logger.debug "Error occured while validating \"#{build_job.source_file.file.file}\": #{err.message}\n\n#{err.backtrace.join("\n")}"
+    build_job.error_occured!
   end
 
   private
 
   def test(check, message)
-    unless check
-      Rails.logger.debug "Error occured while validating \"#{build_job.source_file.file.file}\": #{message}"
-      build_job.error_occured!
-    end
+    fail message unless check
   end
 
   def is_zip_file?(file)

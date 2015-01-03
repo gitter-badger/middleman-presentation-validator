@@ -1,0 +1,25 @@
+<section class="mp-contact-slide">
+<ul class="mp-header">
+  <li class="mp-logo-gad-gruppe"></li>
+  <li class="mp-logo-ratiodata"></li>
+</ul>
+<div class="mp-background-contact">
+  <ul class="mp-contact-list">
+    <% unless Middleman::Presentation.config.email_address.blank? -%>
+      <li>
+        <i class="mp-icon mp-icon-contact-mail"></i><a href="mailto:<%= Middleman::Presentation.config.email_address %>" class="mp-external-url"><%= Middleman::Presentation.config.email_address %></a>
+      </li>
+    <% end -%>
+    <% unless Middleman::Presentation.config.phone_number.blank? -%>
+      <li>
+        <i class="mp-icon mp-icon-contact-phone"></i><%= Middleman::Presentation.config.phone_number %>
+    </li>
+  <% end -%>
+  <% unless Middleman::Presentation.config.github_url.blank? -%>
+    <li>
+      <i class="mp-icon mp-icon-contact-github"></i><a href="<%= Middleman::Presentation.config.github_url %>" class="mp-external-url" target="_blank"><%= File.basename(URI.parse(Middleman::Presentation.config.github_url).path) %></a>
+    </li>
+  <% end -%>
+  </ul>
+</div>
+</section>

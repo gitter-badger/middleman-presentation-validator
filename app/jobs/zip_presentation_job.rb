@@ -11,17 +11,13 @@ class ZipPresentationJob < ActiveJob::Base
     zip_file = File.join(Dir.tmpdir, sprintf('presentation-%s.build.zip', SecureRandom.hex))
 
     Rails.logger.debug "Zipping built presentation at \"#{build_directory}\" to \"#{zip_file}\"."
-    begin
-      MiddlemanPresentationBuilder::Utils.zip(build_directory, zip_file, prefix: prefix)
+    MiddlemanPresentationBuilder::Utils.zip(build_directory, zip_file, prefix: prefix)
 
-      build_job.build_file = File.open(zip_file)
+    build_job.build_file = File.open(zip_file)
 
-      build_job.save!
-      build_job.transfer! build_job
-    rescue => err
-      Rails.logger.debug "Error occured while creating ZIP-file \"#{zip_file}\": #{err.message}\n#{err.backtrace.join("\n")}"
-      build_job.save!
-      build_job.error_occured!
-    end
+    build_job.transfer! build_job
+  rescue => err
+    Rails.logger.debug "Error occured while creating ZIP-file \"#{zip_file}\": #{err.message}\n#{err.backtrace.join("\n")}"
+    build_job.error_occured!
   end
 end

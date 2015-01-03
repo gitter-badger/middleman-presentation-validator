@@ -1,0 +1,35 @@
+---
+activate_center: true
+activate_controls: true
+activate_fragments: true
+activate_history: true
+activate_keyboard: true
+activate_mouse_wheel: true
+activate_overview: true
+activate_progress: true
+activate_slide_number: true
+activate_touch: true
+author: Dennis Günnewig
+auto_slide: 0
+auto_slide_stoppable: true
+bower_directory: vendor/assets/components
+company: Ratiodata IT-Lösungen & Services GmbH
+date: 02.01.2015
+default_background_transition: default
+default_transition_speed: default
+default_transition_type: linear
+email_address: dg1@ratiodata.de
+generated_presentation_id: test-presentation-35408065719b458b96d845308b4e77e9
+height: 700
+hide_address_bar: true
+homepage: http://www.ratiodata.de
+license: CC BY 4.0
+margin: 0.1
+max_scale: 1.0
+min_scale: 0.2
+phone_number: 0251/7133-4209
+speaker: Dennis Günnewig
+title: Test presentation
+version: v0.0.1
+view_distance: 3
+width: 960

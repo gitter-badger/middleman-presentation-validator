@@ -61,8 +61,6 @@ class BuildJob < ActiveRecord::Base
   private
 
   def unzip_source_file
-    require 'pry'
-    binding.pry
     UnzipSourceFileJob.perform_later(self)
   end
 

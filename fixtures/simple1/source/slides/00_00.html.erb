@@ -1,0 +1,19 @@
+<section class="mp-start-slide" data-state="mp-start-slide">
+<ul class="mp-header">
+  <li class="mp-logo-gad-gruppe"></li>
+  <li class="mp-logo-ratiodata"></li>
+</ul>
+<ul class="mp-layout-grid-centered">
+  <li class="mp-layout-grid-column-66">
+    <h1><%= Middleman::Presentation.config.title %></h1>
+    <h2><%= Middleman::Presentation.config.subtitle %></h2>
+
+    <span class="mp-meta">
+      <%= metadata_markup(Middleman::Presentation.config.metadata_headline, Middleman::Presentation.config.known_options) %>
+    </span>
+  </li>
+  <li class="mp-layout-grid-column-33">
+    <div class="mp-logo"></div>
+  </li>
+</ul>
+</section>

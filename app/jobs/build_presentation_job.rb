@@ -18,26 +18,21 @@ class BuildPresentationJob < ActiveJob::Base
     build_job.start_time = Time.now
 
     cmd = nil
-    begin
-      Timeout::timeout(Rails.configuration.x.build_timeout) do
-        cmd = MiddlemanPresentationBuilder::Command.new(cmd_str.join(' '), working_directory: directory_with_configfile)
-        cmd.execute
-      end
-    rescue Timeout::Error
-      build_job.stop_time    = Time.now
-      build_job.error_occured!
+    Timeout::timeout(Rails.configuration.x.build_timeout) do
+      cmd = MiddlemanPresentationBuilder::Command.new(cmd_str.join(' '), working_directory: directory_with_configfile)
+      cmd.execute
     end
 
     build_job.stop_time = Time.now
     build_job.output << format('$ %s', cmd.to_s)
     build_job.output << cmd.output
 
-    build_job.save!
+    fail "Command \"#{command.to_s}\" failed. See output for more details" unless cmd.success?
 
-    if cmd.success?
-      build_job.zip! build_job
-    else
-      build_job.error_occured!
-    end
+    build_job.zip! build_job
+  rescue => err
+    Rails.logger.debug "Build Job failed with #{err.message}\n\n#{err.backtrace.join("\n")}"
+    build_job.stop_time = Time.now
+    build_job.error_occured!
   end
 end
