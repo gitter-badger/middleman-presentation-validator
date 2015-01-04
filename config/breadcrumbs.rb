@@ -6,6 +6,11 @@ crumb :build_jobs do
   link I18n.t('views.application.main_navigation.links.build_jobs'), build_jobs_path
 end
 
+crumb :new_build_job do |build_job|
+  link I18n.t('views.application.breadcrumbs.links.new_build_job')
+  parent :build_jobs
+end
+
 crumb :build_job do |build_job|
   link build_job.short_title, build_job_path(build_job)
   parent :build_jobs

@@ -7,6 +7,9 @@ i.fe-icon {
   vertical-align: center;
 }
 
+.fe-icon-spinner {
+  @extend .fa-spin;
+}
 .fe-icon-stack {
   @extend .fa-stack;
 }
@@ -152,6 +155,11 @@ i.fe-icon-start {
 .fe-icon-buildjob:before {
   // fa-task
   content: "\f0ae";
+}
+
+.fe-icon-buildjob-running:before {
+  // fa-cog
+  content: "\f013";
 }
 
 .fe-icon-item-new:before {

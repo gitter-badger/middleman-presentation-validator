@@ -1,12 +1,14 @@
+require 'timeout'
+
 class InstallRequirementsJob < ActiveJob::Base
   queue_as :default
 
   def perform(build_job)
-    directory_with_gemfile = File.dirname(Dir.glob(File.join(build_job.working_directory, '**', 'Gemfile')).first)
+    directory_with_config = Dir.glob(File.join(build_job.working_directory, '**', '.middleman-presentation.yaml')).first
 
     cmd = nil
     Timeout::timeout(Rails.configuration.x.build_timeout) do
-      cmd = MiddlemanPresentationBuilder::Command.new('bundle install', working_directory: directory_with_gemfile)
+      cmd = MiddlemanPresentationBuilder::Command.new('bundle install', working_directory: directory_with_config)
       cmd.execute
     end
 

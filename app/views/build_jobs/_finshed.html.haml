@@ -1,0 +1,12 @@
+%h1
+  = @build_job.title
+%p
+  = @build_job.start_time
+%p
+  = @build_job.stop_time
+%p
+  = @build_job.duration
+%p
+  = @build_job.build_status
+%code
+  = simple_format(@build_job.output)

@@ -3,15 +3,7 @@
 - content_for :navigation_actions do
   = render partial: 'actions'
 
-%h1
-  = @build_job.title
-%p
-  = @build_job.start_time
-%p
-  = @build_job.stop_time
-%p
-  = @build_job.duration
-%p
-  = @build_job.build_status
-%code
-  = simple_format(@build_job.output)
+- if @build_job.completed? || @build_job.failure?
+  = render partial: 'finshed'
+- else
+  = render partial: 'running'

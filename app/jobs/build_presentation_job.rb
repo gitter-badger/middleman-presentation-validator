@@ -4,7 +4,7 @@ class BuildPresentationJob < ActiveJob::Base
   queue_as :default
 
   def perform(build_job)
-    directory_with_configfile = File.dirname(Dir.glob(File.join(build_job.working_directory, '**', '.middleman-presentation.yaml')).first)
+    directory_with_config = Dir.glob(File.join(build_job.working_directory, '**', '.middleman-presentation.yaml')).first
 
     cmd_str = []
     cmd_str << 'bundle exec middleman-presentation build presentation'
@@ -19,7 +19,7 @@ class BuildPresentationJob < ActiveJob::Base
 
     cmd = nil
     Timeout::timeout(Rails.configuration.x.build_timeout) do
-      cmd = MiddlemanPresentationBuilder::Command.new(cmd_str.join(' '), working_directory: directory_with_configfile)
+      cmd = MiddlemanPresentationBuilder::Command.new(cmd_str.join(' '), working_directory: directory_with_config)
       cmd.execute
     end
 

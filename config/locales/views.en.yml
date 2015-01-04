@@ -14,6 +14,7 @@ en:
         links: &links
           root: Home
           build_jobs: Build Jobs
+          new_build_job: New Build Job
       breadcrumbs:
         pretext: 'You are here:'
         links:
@@ -24,5 +25,8 @@ en:
         headline: Create a new Build Job
       destroy_all:
         link: Delete All Build Jobs
+      show:
+        text:
+          running: This one will be just prepared for you.
 
 
