@@ -17,7 +17,7 @@ class ZipPresentationJob < ActiveJob::Base
 
     build_job.transfer! build_job
   rescue => err
-    Rails.logger.debug "Error occured while creating ZIP-file \"#{zip_file}\": #{err.message}\n#{err.backtrace.join("\n")}"
+    Rails.logger.fatal "Error occured while creating ZIP-file \"#{zip_file}\": #{err.message}\n#{err.backtrace.join("\n")}"
     build_job.error_occured!
   end
 end

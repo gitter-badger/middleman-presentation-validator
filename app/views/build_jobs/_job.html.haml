@@ -1,8 +1,36 @@
-%div.fe-build_job
-  %div.fe-icon-item-appetizer{ style: "background-image: #{job.icon}" }
-  %ul.fe-build_job-details
-    %li
+%div.fe-build_job-overview
+  = link_to build_job_path(job) do
+    %div.fe-icon-item-appetizer{ style: "background-image: #{job.icon}" }
+  %ul.fe-build_job-overview-items
+    %li.fe-build_job-overview-row
       %span.fe-build_job-title
         = link_to build_job_path(job) do
           %h1
             = job.title
+    %li.fe-build_job-overview-row
+      - unless job.start_time.blank?
+        %span.fe-build_job-start_time
+          %i.fe-icon.fe-icon-start.fe-icon-color-grey.fe-icon-build_job-start_time
+          = job.start_time
+      - unless job.stop_time.blank?
+        %span.fe-build_job-stop_time
+          %i.fe-icon.fe-icon-slim.fe-icon-color-grey.fe-icon-build_job-stop_time
+          = job.stop_time
+      - if !job.stop_time.blank? && !job.start_time.blank?
+        %span.fe-build_job-duration
+          %i.fe-icon.fe-icon-slim.fe-icon-color-grey.fe-icon-build_job-duration
+          = job.duration
+    %li.fe-build_job-overview-row
+      - unless job.source_file.blank?
+        %span.fe-build_job-source_file
+          %i.fe-icon.fe-icon-slim.fe-icon-color-grey.fe-icon-build_job-source_file
+          = link_to BuildJob.human_attribute_name('source_file'), job.source_file.url
+          = job.source_file_size
+      - unless job.build_file.blank?
+        %span.fe-build_job-build_file
+          %i.fe-icon.fe-icon-slim.fe-icon-color-grey.fe-icon-build_job-build_file
+          = link_to BuildJob.human_attribute_name('build_file'), job.build_file.url
+          = job.build_file_size
+      %span.fe-build_job-build_status
+        %i.fe-icon.fe-icon-slim.fe-icon-color-grey.fe-icon-build_job-build_status
+        = job.aasm_state

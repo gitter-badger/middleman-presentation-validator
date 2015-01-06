@@ -9,7 +9,7 @@ en:
         start_time: Start Time
         end_time: End Time
         source_file: Source File
-        build_file: Build Presentation
+        build_file: Built Presentation
         result: Result
         error_message: Error Message
     models:

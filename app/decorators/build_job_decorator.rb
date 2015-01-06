@@ -7,6 +7,18 @@ class BuildJobDecorator < Draper::Decorator
     FeduxOrgStdlib::Icon.new(id.to_s).to_data_uri
   end
 
+  def source_file_size
+    return if source_file.blank?
+
+    format '(%s)', h.number_to_human_size(source_file.file.size, precision: 2)
+  end
+
+  def build_file_size
+    return if build_file.blank?
+
+    format '(%s)', h.number_to_human_size(build_file.file.size, precision: 2)
+  end
+
   def title
     format('%s #%d', BuildJob.model_name.human, id)
   end

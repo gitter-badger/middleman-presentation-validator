@@ -1,35 +1,8 @@
-.fe-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  //margin: 15px;
-  min-width: 100vw;
-  min-height: 99vh;
-}
-
-.fe-footer {
-  @extend .fe-font-small;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 15px;
-  margin-bottom: 0px;
-}
-
-.fe-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-}
-
 .fe-navigation {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 100vw;
+  min-width: 100%;
   padding: 15px;
 }
 
@@ -48,8 +21,8 @@
 
 .fe-navigation-bar,
 .fe-navigation-breadcrumbs {
-  background-color: #f8f8f8;
-  border: 1px solid #e7e7e7;
+  background-color: $fe-color-grey-lightest;
+  border: 1px solid $fe-color-grey-lighter;
   min-width: 100%;
   list-style: none;
   padding: 4px;

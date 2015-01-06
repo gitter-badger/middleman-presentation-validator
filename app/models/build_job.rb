@@ -10,10 +10,10 @@ class BuildJob < ActiveRecord::Base
     state :unzipped, after_enter: :unzip_source_file
     state :validated, after_enter: :validate_presentation
     state :requirements_installed, after_enter: :install_requirements
-    state :built#, after_enter: :build_presentation
-    state :zipped#, after_enter: :zip_presentation
-    state :transferred#, after_enter: :transfer_built_presentation
-    state :clean#, after_enter: :cleanup_build_job
+    state :built, after_enter: :build_presentation
+    state :zipped, after_enter: :zip_presentation
+    state :transferred, after_enter: :transfer_built_presentation
+    state :clean, after_enter: :cleanup_build_job
     state :failure#, after_enter: :cleanup_build_job
     state :completed
 

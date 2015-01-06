@@ -4,6 +4,8 @@
   = render partial: 'actions'
 
 - if @build_job.completed? || @build_job.failure?
-  = render partial: 'finshed'
+  %section.fe-top-content
+    = render partial: 'finshed'
 - else
-  = render partial: 'running'
+  %section.fe-centered-content
+    = render partial: 'running'

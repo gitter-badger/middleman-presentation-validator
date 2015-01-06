@@ -1,3 +1,129 @@
-// Place all the styles related to the builds controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.fe-build_jobs-image-running {
+  @extend i.fe-icon;
+  @extend .fe-icon-build_job-running;
+  @extend .fe-icon-absolute-bigger;
+  color: $fe-color-grey-light;
+}
+
+.fe-build_job-output {
+//  white-space: pre-wrap;
+  max-width: 800px;
+  width: 60vw;
+  min-width: 400px;
+  padding: 10px;
+  color: $fe-color-grey-dark;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: $fe-color-grey-lightest;
+  border: 1px solid $fe-color-grey-lighter;
+}
+
+.fe-show-field h1 {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.fe-show-field h1 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 3px;
+}
+
+.fe-item-details {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.fe-show-field {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  background-color: $fe-color-grey-lightest;
+  border: 1px solid $fe-color-grey-lighter;
+  padding: 5px;
+  flex: 1 0 auto;
+}
+
+.fe-show-field-blank {
+  @extend .fe-show-field;
+  background-color: $fe-color-transparent;
+  border: 1px solid $fe-color-transparent;
+}
+
+.fe-build_job-overview {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.fe-build_job-overview-row {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  font-weigth: bold;
+}
+
+.fe-build_job-start_time {
+  @extend .fe-item-metadata;
+}
+
+.fe-build_job-stop_time {
+  @extend .fe-item-metadata;
+}
+
+.fe-build_job-build_status {
+  @extend .fe-item-metadata;
+}
+
+.fe-build_job-duration {
+  @extend .fe-item-metadata;
+}
+
+.fe-build_job-source_file a:link,
+.fe-build_job-source_file a:visited,
+.fe-build_job-source_file a:focus,
+.fe-build_job-source_file a:active {
+  color: $fe-color-grey-darker;
+  text-decoration: none;
+}
+
+.fe-build_job-source_file a:hover {
+  color: $fe-color-black;
+}
+
+.fe-build_job-source_file {
+  @extend .fe-item-metadata;
+}
+
+.fe-build_job-build_file a:link,
+.fe-build_job-build_file a:visited,
+.fe-build_job-build_file a:focus,
+.fe-build_job-build_file a:active {
+  color: $fe-color-grey-darker;
+  text-decoration: none;
+}
+
+.fe-build_job-build_file a:hover {
+  color: $fe-color-black;
+}
+
+.fe-build_job-build_file {
+  @extend .fe-item-metadata;
+}
+
+.fe-show-field a:link,
+.fe-show-field a:visited,
+.fe-show-field a:focus,
+.fe-show-field a:active {
+  color: $fe-color-grey-darker;
+  text-decoration: none;
+}
+
+.fe-show-field a:hover {
+  color: $fe-color-black;
+}

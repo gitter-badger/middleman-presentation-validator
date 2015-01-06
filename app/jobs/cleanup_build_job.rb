@@ -9,7 +9,7 @@ class CleanupBuildJob < ActiveJob::Base
 
     build_job.finish! build_job
   rescue => err
-    Rails.logger.debug "Build Job failed with #{err.message}\n\n#{err.backtrace.join("\n")}"
+    Rails.logger.fatal "Build Job failed with #{err.message}\n\n#{err.backtrace.join("\n")}"
     build_job.error_occured!
   end
 end

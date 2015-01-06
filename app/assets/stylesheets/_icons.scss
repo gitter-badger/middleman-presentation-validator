@@ -152,14 +152,44 @@ i.fe-icon-start {
   content: "\f015";
 }
 
-.fe-icon-buildjob:before {
+.fe-icon-build_job:before {
   // fa-task
   content: "\f0ae";
 }
 
-.fe-icon-buildjob-running:before {
-  // fa-cog
-  content: "\f013";
+.fe-icon-build_job-running:before {
+  // fa-cogs
+  content: "\f085";
+}
+
+.fe-icon-build_job-start_time:before {
+  // fa-flag-o
+  content: "\f11d";
+}
+
+.fe-icon-build_job-stop_time:before {
+  // fa-flag-checkered
+  content: "\f11e";
+}
+
+.fe-icon-build_job-duration:before {
+  // fa-clock
+  content: "\f017";
+}
+
+.fe-icon-build_job-build_status:before {
+  // fa-cogs
+  content: "\f085";
+}
+
+.fe-icon-build_job-source_file:before {
+  // fa-archive
+  content: "\f1c6";
+}
+
+.fe-icon-build_job-build_file:before {
+  // fa-archive
+  content: "\f1c6";
 }
 
 .fe-icon-item-new:before {

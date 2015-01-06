@@ -2,6 +2,7 @@ class ValidatePresentationJob < ActiveJob::Base
   queue_as :default
 
   def perform(build_job)
+    test zip_file_exist?(build_job.source_file.file.file), 'Zip file does not exist'
     test is_zip_file?(build_job.source_file.file.file), 'No zip file'
     test has_gemfile?(build_job.working_directory), 'No gemfile found'
     test has_middleman_gem_in_gemfile?(build_job.working_directory), 'No middleman gem in Gemfile'
@@ -9,8 +10,7 @@ class ValidatePresentationJob < ActiveJob::Base
 
     build_job.install! build_job
   rescue => err
-    binding.pry
-    Rails.logger.debug "Error occured while validating \"#{build_job.source_file.file.file}\": #{err.message}\n\n#{err.backtrace.join("\n")}"
+    Rails.logger.fatal "Error occured while validating \"#{build_job.source_file.file.file}\": #{err.message}\n\n#{err.backtrace.join("\n")}"
     build_job.error_occured!
   end
 
@@ -18,6 +18,10 @@ class ValidatePresentationJob < ActiveJob::Base
 
   def test(check, message)
     fail message unless check
+  end
+
+  def zip_file_exist?(file)
+    File.file? file
   end
 
   def is_zip_file?(file)

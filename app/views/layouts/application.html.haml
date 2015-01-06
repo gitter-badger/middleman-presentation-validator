@@ -15,7 +15,7 @@
     = yield(:stylesheets)
     = csrf_meta_tags
 %body.fe-main
-  %header
+  %header.fe-site-header
     %nav.fe-navigation
       %ul.fe-navigation-bar
         %li.fe-navigation-links
@@ -24,8 +24,8 @@
             = t('views.application.main_navigation.links.root')
         %li.fe-navigation-links
           = link_to build_jobs_path do
-            %i.fe-icon.fe-icon-slim.fe-icon-buildjob
-            = t('views.application.main_navigation.links.buildjobs')
+            %i.fe-icon.fe-icon-slim.fe-icon-build_job
+            = t('views.application.main_navigation.links.build_jobs')
         %li.fe-navigation-actions
           = yield :navigation_actions
       = breadcrumbs class: 'fe-navigation-breadcrumbs', current_class: 'fe-navigation-breadcrumbs-current', fragment_class: 'fe-navigation-breadcrumbs-links', pretext_class: 'fe-navigation-breadcrumbs-pretext', separator: '/'
