@@ -1,5 +1,18 @@
 object @build_job
-attributes :id, :start_time, :stop_time, :status, :duration
+attributes :id, :start_time, :stop_time, :aasm_state, :duration
 
-node(:start_file) { |job| Base64.encode64(job.source_file_content) }
-node(:build_file) { |job| Base64.encode64(job.build_file_content) }
+node(:start_file) do |job| 
+  if job.source_file_content.blank?
+    ""
+  else
+    Base64.encode64(job.source_file_content)
+  end
+end
+
+node(:build_file) do |job| 
+  if job.build_file_content.blank?
+    ""
+  else
+    Base64.encode64(job.build_file_content)
+  end
+end
