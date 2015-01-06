@@ -97,3 +97,4 @@ gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'pg'
 gem 'middleman-presentation-helpers', '~> 0.16.rc1', require: false
+gem 'gibson'

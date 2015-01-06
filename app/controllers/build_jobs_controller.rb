@@ -10,6 +10,11 @@ class BuildJobsController < ApplicationController
   # GET /build_jobs/1
   # GET /build_jobs/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json
+      format.bson
+    end
   end
 
   # GET /build_jobs/new

@@ -19,6 +19,18 @@ class BuildJobDecorator < Draper::Decorator
     format '(%s)', h.number_to_human_size(build_file.file.size, precision: 2)
   end
 
+  def build_file_content
+    return if build_file.blank?
+
+    build_file.file.read
+  end
+
+  def source_file_content
+    return if source_file.blank?
+
+    source_file.file.read
+  end
+
   def title
     format('%s #%d', BuildJob.model_name.human, id)
   end
