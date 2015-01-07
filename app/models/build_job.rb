@@ -58,6 +58,12 @@ class BuildJob < ActiveRecord::Base
     end
   end
 
+  def to_json
+    template = 'build_jobs/show'
+    object = self
+    Rabl.render(object, template, :view_path => 'app/views', :format => :json)
+  end
+
   private
 
   def unzip_source_file

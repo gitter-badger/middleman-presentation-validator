@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe BuildDecorator do
+RSpec.describe BuildJobDecorator do
 end
