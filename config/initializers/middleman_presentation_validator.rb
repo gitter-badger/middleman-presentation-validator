@@ -8,11 +8,11 @@ require 'fedux_org_stdlib/zipper'
 
 require 'fedux_org_stdlib/core_ext/string/characterize'
 
-require 'middleman_presentation_builder/errors'
-require 'middleman_presentation_builder/utils'
-require 'middleman_presentation_builder/presentation_config'
-require 'middleman_presentation_builder/uploader'
-require 'middleman_presentation_builder/command'
+require 'middleman_presentation_validator/errors'
+require 'middleman_presentation_validator/utils'
+require 'middleman_presentation_validator/presentation_config'
+require 'middleman_presentation_validator/uploader'
+require 'middleman_presentation_validator/command'
 
 module MiddlemanPresentationBuilder
 end

@@ -1,6 +1,8 @@
 require 'fedux_org_stdlib/icon'
 
-class BuildJobDecorator < Draper::Decorator
+class ValidationJobDecorator < Draper::Decorator
+  include Draper::LazyHelpers
+
   delegate_all
 
   def icon
@@ -22,25 +24,25 @@ class BuildJobDecorator < Draper::Decorator
   def build_status(status = aasm_state.to_sym)
     case status
     when :created
-      I18n.t('views.build_jobs.build_status.created')
+      I18n.t('views.validation_jobs.build_status.created')
     when :unzipping
-      I18n.t('views.build_jobs.build_status.unzipping')
+      I18n.t('views.validation_jobs.build_status.unzipping')
     when :validating
-      I18n.t('views.build_jobs.build_status.validating')
+      I18n.t('views.validation_jobs.build_status.validating')
     when :installing_requirements
-      I18n.t('views.build_jobs.build_status.installing_requirements')
+      I18n.t('views.validation_jobs.build_status.installing_requirements')
     when :building
-      I18n.t('views.build_jobs.build_status.building')
+      I18n.t('views.validation_jobs.build_status.building')
     when :zipping
-      I18n.t('views.build_jobs.build_status.zipping')
+      I18n.t('views.validation_jobs.build_status.zipping')
     when :transferring
-      I18n.t('views.build_jobs.build_status.transferring')
+      I18n.t('views.validation_jobs.build_status.transferring')
     when :cleaning_up
-      I18n.t('views.build_jobs.build_status.cleaning_up')
+      I18n.t('views.validation_jobs.build_status.cleaning_up')
     when :failed
-      I18n.t('views.build_jobs.build_status.failed')
+      I18n.t('views.validation_jobs.build_status.failed')
     when :completed
-      I18n.t('views.build_jobs.build_status.completed')
+      I18n.t('views.validation_jobs.build_status.completed')
     else
       fail "Invalid state #{aasm_state}"
     end
@@ -59,7 +61,7 @@ class BuildJobDecorator < Draper::Decorator
   end
 
   def title
-    format('%s #%d', BuildJob.model_name.human, id)
+    format('%s #%d', ValidationJob.model_name.human, id)
   end
 
   def short_title

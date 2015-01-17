@@ -8,23 +8,23 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: middleman_presentation_builder
+  username: middleman_presentation_validator
   password: test
 
 development:
   <<: *default
-  database: middleman_presentation_builder_development
+  database: middleman_presentation_validator_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test: &test
   <<: *default
-  database: middleman_presentation_builder_test
+  database: middleman_presentation_validator_test
 
 production:
   <<: *default
-  database: middleman_presentation_builder_production
+  database: middleman_presentation_validator_production
 
 cucumber:
   <<: *test

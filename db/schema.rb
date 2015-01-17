@@ -16,15 +16,13 @@ ActiveRecord::Schema.define(version: 20150109200105) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "build_jobs", force: :cascade do |t|
+  create_table "validation_jobs", force: :cascade do |t|
     t.string   "output",             default: ""
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.datetime "start_time"
     t.datetime "stop_time"
     t.string   "source_file"
-    t.string   "build_file"
-    t.boolean  "add_static_servers", default: true
     t.string   "callback_url"
     t.string   "aasm_state"
     t.string   "working_directory"

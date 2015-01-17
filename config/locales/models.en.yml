@@ -2,10 +2,10 @@ en:
   activerecord:
     errors:
       save:
-        one: '%{count} error prohibited this build_job from being saved:'
-        many: '%{count} errors prohibited this build_job from being saved:'
+        one: '%{count} error prohibited this validation_job from being saved:'
+        many: '%{count} errors prohibited this validation_job from being saved:'
     attributes:
-      build_job: &build_job_attributes
+      validation_job: &validation_job_attributes
         start_time: Start Time
         end_time: End Time
         source_file: Source File
@@ -13,4 +13,4 @@ en:
         result: Result
         error_message: Error Message
     models:
-      build_job: Build Job
+      validation_job: Build Job

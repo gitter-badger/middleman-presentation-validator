@@ -1,4 +1,4 @@
-class BuildJob < ActiveRecord::Base
+class ValidationJob < ActiveRecord::Base
   include AASM
 
 
@@ -18,7 +18,7 @@ class BuildJob < ActiveRecord::Base
     state :building, after_enter: :build_presentation
     state :zipping, after_enter: :zip_presentation
     state :transferring, after_enter: :transfer_built_presentation
-    state :cleaning_up, after_enter: :cleanup_build_job
+    state :cleaning_up, after_enter: :cleanup_validation_job
     state :failed
     state :completed
 
@@ -64,7 +64,7 @@ class BuildJob < ActiveRecord::Base
   end
 
   def to_json
-    template = 'build_jobs/show'
+    template = 'validation_jobs/show'
     object = self
     Rabl.render(object, template, :view_path => 'app/views', :format => :json)
   end
@@ -95,8 +95,8 @@ class BuildJob < ActiveRecord::Base
     InstallRequirementsJob.perform_later(self)
   end
 
-  def cleanup_build_job
-    CleanupBuildJob.perform_later(self)
+  def cleanup_validation_job
+    CleanupValidationJob.perform_later(self)
   end
 
 end

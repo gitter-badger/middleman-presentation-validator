@@ -1,24 +1,24 @@
 class UnzipSourceFileJob < ActiveJob::Base
   queue_as :default
 
-  def perform(build_job)
-    build_job.start_time = Time.now
+  def perform(validation_job)
+    validation_job.start_time = Time.now
 
-    fail 'No source file was uploaded' if build_job.source_file.blank? || build_job.source_file.file.blank?
+    fail 'No source file was uploaded' if validation_job.source_file.blank? || validation_job.source_file.file.blank?
 
-    zip_file = build_job.source_file.file.file
+    zip_file = validation_job.source_file.file.file
 
-    Rails.logger.debug "Unzipping presentation \"#{zip_file}\" to \"#{build_job.working_directory}\"."
+    Rails.logger.debug "Unzipping presentation \"#{zip_file}\" to \"#{validation_job.working_directory}\"."
 
-    MiddlemanPresentationBuilder::Utils.unzip(zip_file, build_job.working_directory)
+    MiddlemanPresentationBuilder::Utils.unzip(zip_file, validation_job.working_directory)
 
-    build_job.progress[:unzipping] = true
+    validation_job.progress[:unzipping] = true
 
-    build_job.validate! build_job
+    validation_job.validate! validation_job
   rescue => err
     Rails.logger.fatal "Error occured while unzipping \"#{zip_file}\": #{err.message}\n#{err.backtrace.join("\n")}"
-    build_job.progress[:unzipping] = false
-    build_job.stop_time = Time.now
-    build_job.error_occured!
+    validation_job.progress[:unzipping] = false
+    validation_job.stop_time = Time.now
+    validation_job.error_occured!
   end
 end

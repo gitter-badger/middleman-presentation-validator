@@ -12,7 +12,7 @@ require 'middleman-presentation-builder/build_orchestrator'
 #require 'middleman-presentation-builder/presentation_config'
 #require 'middleman-presentation-builder/uploaded_presentation'
 #require 'middleman-presentation-builder/built_presentation'
-#require 'middleman-presentation-builder/presentation_builder'
+#require 'middleman-presentation-builder/presentation_validator'
 
 module MiddlemanPresentationBuilder
 end

@@ -31,7 +31,7 @@
         = BuildJob.human_attribute_name 'source_file'
       = link_to BuildJob.human_attribute_name('source_file'), @build_job.source_file.url
       = @build_job.source_file_size
-  - unless @build_job.source_file.blank?
+  - unless @build_job.build_file.blank?
     %li.fe-show-field
       %i.fe-build_job-image-build_file
       %h1

@@ -14,16 +14,16 @@ RSpec.describe ValidatePresentationJob, :type => :job do
       uploader = double('Uploader')
       allow(uploader).to receive(:file).and_return(file)
 
-      build_job = instance_double('BuildJob')
-      allow(build_job).to receive(:source_file).and_return(uploader)
-      allow(build_job).to receive(:working_directory).and_return(Dir.getwd)
-      expect(build_job).to receive(:install!)
-      expect(build_job).not_to receive(:error_occured!)
+      validation_job = instance_double('ValidationJob')
+      allow(validation_job).to receive(:source_file).and_return(uploader)
+      allow(validation_job).to receive(:working_directory).and_return(Dir.getwd)
+      expect(validation_job).to receive(:install!)
+      expect(validation_job).not_to receive(:error_occured!)
 
       job = ValidatePresentationJob.new
 
       in_current_dir do
-        job.perform(build_job)
+        job.perform(validation_job)
       end
     end
 
@@ -38,16 +38,16 @@ RSpec.describe ValidatePresentationJob, :type => :job do
       uploader = double('Uploader')
       allow(uploader).to receive(:file).and_return(file)
 
-      build_job = instance_double('BuildJob')
-      allow(build_job).to receive(:source_file).and_return(uploader)
-      allow(build_job).to receive(:working_directory).and_return(Dir.getwd)
-      expect(build_job).to receive(:install!)
-      expect(build_job).not_to receive(:error_occured!)
+      validation_job = instance_double('ValidationJob')
+      allow(validation_job).to receive(:source_file).and_return(uploader)
+      allow(validation_job).to receive(:working_directory).and_return(Dir.getwd)
+      expect(validation_job).to receive(:install!)
+      expect(validation_job).not_to receive(:error_occured!)
 
       job = ValidatePresentationJob.new
 
       in_current_dir do
-        job.perform(build_job)
+        job.perform(validation_job)
       end
     end
   end

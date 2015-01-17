@@ -65,8 +65,6 @@ end
 gem 'dotenv-rails'
 gem 'rabl'
 
-gem 'sidekiq'
-gem 'bson'
 gem 'rubyzip', require: 'zip'
 gem 'carrierwave'
 gem 'autoprefixer-rails'
@@ -88,7 +86,7 @@ gem 'formtastic'
 
 gem 'lograge'
 gem 'browser_details'
-gem 'geo_pattern', git: 'https://github.com/jasonlong/geo_pattern.git'
+gem 'geo_pattern'
 gem 'fedux_org-stdlib', '~> 0.11.8', require: false
 gem 'ruby-filemagic'
 gem 'faraday'
@@ -96,7 +94,7 @@ gem 'aasm'
 gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'pg'
-gem 'middleman-presentation-helpers', '~> 0.16.rc1', require: false
+gem 'middleman-presentation-helpers', '~> 0.16.0.rc2', require: false
 gem 'refile'
 gem 'pry-rails'
 # gem 'cells'

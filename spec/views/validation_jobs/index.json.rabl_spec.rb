@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "build_jobs/index.json.rabl", :type => [:view, :feature] do
+RSpec.describe "validation_jobs/index.json.rabl", :type => [:view, :feature] do
   context '#get' do
     it 'returns json document' do
-      visit '/build_jobs.json'
+      visit '/validation_jobs.json'
       binding.pry
       ''
     end

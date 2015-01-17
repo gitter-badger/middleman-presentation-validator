@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  resources 'build_jobs', only: [:show, :index, :destroy, :create, :new]
-  match 'build_jobs', :to => 'build_jobs#destroy_all', :via => :delete
+  resources 'validation_jobs', only: [:show, :index, :destroy, :create, :new]
+  match 'validation_jobs', :to => 'validation_jobs#destroy_all', :via => :delete
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'build_jobs#index'
+  root 'validation_jobs#index'
 
   match '/400', via: :all, to: 'errors#invalid_request'
   match '/404', via: :all, to: 'errors#not_found'

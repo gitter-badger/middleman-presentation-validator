@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :build_job do
+  factory :validation_job do
     output 'hello world'
     start_time Time.parse('2014-01-01 14:00:00')
     stop_time Time.parse('2014-01-01 14:00:30')
