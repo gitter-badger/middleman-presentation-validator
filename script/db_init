@@ -1,10 +1,10 @@
 cd /tmp/
-sudo -u postgres dropuser middleman_presentation_builder
-sudo -u postgres createuser --pwprompt middleman_presentation_builder
+sudo -u postgres dropuser middleman_presentation_validator
+sudo -u postgres createuser --pwprompt middleman_presentation_validator
 
-sudo -u postgres dropdb middleman_presentation_builder_development
-sudo -u postgres dropdb middleman_presentation_builder_test
-sudo -u postgres dropdb middleman_presentation_builder_production
-sudo -u postgres createdb --owner middleman_presentation_builder middleman_presentation_builder_development
-sudo -u postgres createdb --owner middleman_presentation_builder middleman_presentation_builder_test
-sudo -u postgres createdb --owner middleman_presentation_builder middleman_presentation_builder_production
+sudo -u postgres dropdb middleman_presentation_validator_development
+sudo -u postgres dropdb middleman_presentation_validator_test
+sudo -u postgres dropdb middleman_presentation_validator_production
+sudo -u postgres createdb --owner middleman_presentation_validator middleman_presentation_validator_development
+sudo -u postgres createdb --owner middleman_presentation_validator middleman_presentation_validator_test
+sudo -u postgres createdb --owner middleman_presentation_validator middleman_presentation_validator_production
