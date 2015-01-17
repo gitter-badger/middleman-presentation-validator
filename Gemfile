@@ -97,5 +97,9 @@ gem 'pg'
 gem 'middleman-presentation-helpers', '~> 0.16.0.rc2', require: false
 gem 'refile', require: ['refile/rails']
 gem 'pry-rails'
+gem 'pry-rescue'
+gem 'pry-stack_explorer'
+gem 'pry-clipboard'
+
 # gem 'cells'
 # gem 'rspec-cells'

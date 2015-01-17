@@ -2,8 +2,11 @@ class ValidatePresentationJob < ActiveJob::Base
   queue_as :default
 
   def perform(validation_job)
-    test zip_file_exist?(validation_job.source_file.file.file), 'Zip file does not exist'
-    test is_zip_file?(validation_job.source_file.file.file), 'No zip file'
+
+    zip_file = validation_job.source_file.to_io.path
+
+    test zip_file_exist?(zip_file), 'Zip file does not exist'
+    test is_zip_file?(zip_file), 'No zip file'
     test has_gemfile?(validation_job.working_directory), 'No gemfile found'
     test has_date?(validation_job.working_directory), 'Mandatory option date is missing'
     test has_middleman_gem_in_gemfile?(validation_job.working_directory), 'No middleman gem in Gemfile'
@@ -11,9 +14,9 @@ class ValidatePresentationJob < ActiveJob::Base
 
     validation_job.progress[:validating] = true
 
-    validation_job.install! validation_job
+    validation_job.cleanup! validation_job
   rescue => err
-    Rails.logger.fatal "Error occured while validating \"#{validation_job.source_file.file.file}\": #{err.message}\n\n#{err.backtrace.join("\n")}"
+    Rails.logger.fatal "Error occured while validating \"#{zip_file}\": #{err.message}\n\n#{err.backtrace.join("\n")}"
     validation_job.progress[:validating] = false
     validation_job.stop_time = Time.now
     validation_job.error_occured!
@@ -47,7 +50,7 @@ class ValidatePresentationJob < ActiveJob::Base
 
   def has_date?(directory)
     config_file = Dir.glob(File.join(directory, '**', '.middleman-presentation.yaml')).first
-    config = PresentationConfig.new(config_file)
+    config = MiddlemanPresentationValidator::PresentationConfig.new(config_file)
 
     !config.date.blank?
   end

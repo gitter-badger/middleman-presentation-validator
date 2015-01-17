@@ -23,14 +23,6 @@ class ValidationJobDecorator < Draper::Decorator
       I18n.t('views.validation_jobs.build_status.unzipping')
     when :validating
       I18n.t('views.validation_jobs.build_status.validating')
-    when :installing_requirements
-      I18n.t('views.validation_jobs.build_status.installing_requirements')
-    when :building
-      I18n.t('views.validation_jobs.build_status.building')
-    when :zipping
-      I18n.t('views.validation_jobs.build_status.zipping')
-    when :transferring
-      I18n.t('views.validation_jobs.build_status.transferring')
     when :cleaning_up
       I18n.t('views.validation_jobs.build_status.cleaning_up')
     when :failed

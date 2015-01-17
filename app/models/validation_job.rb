@@ -8,6 +8,8 @@ class ValidationJob < ActiveRecord::Base
   belongs_to :build_status
   has_one :build_progress
 
+  validates :source_file, presence: true
+
   aasm do
     state :created, initial: true
     state :unzipping, after_enter: :unzip_source_file
@@ -28,7 +30,7 @@ class ValidationJob < ActiveRecord::Base
       transitions from: :validating, to: :cleaning_up
     end
 
-    event :finish do
+    event :complete do
       transitions from: :cleaning_up, to: :completed
     end
 

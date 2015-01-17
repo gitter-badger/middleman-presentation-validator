@@ -35,8 +35,10 @@ class ValidationJobsController < ApplicationController
       @validation_job.progress[s.name] = nil
     end
 
-    @validation_job.source_file = params['validation_job']['source_file']
-    @validation_job.add_static_servers = params['validation_job']['add_static_servers'] == "1" ? true : false
+    unless params['validation_job']['source_file'] == '{}'
+      @validation_job.source_file = params['validation_job']['source_file'].tempfile
+    end
+
     @validation_job.callback_url = params['validation_job']['callback_url']
     @validation_job.working_directory = Dir.mktmpdir('presentation')
     @validation_job.save!

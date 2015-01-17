@@ -4,9 +4,9 @@ class UnzipSourceFileJob < ActiveJob::Base
   def perform(validation_job)
     validation_job.start_time = Time.now
 
-    fail 'No source file was uploaded' if validation_job.source_file.blank? || validation_job.source_file.file.blank?
+    fail 'No source file was uploaded' if validation_job.source_file.blank?
 
-    zip_file = validation_job.source_file.file.file
+    zip_file = validation_job.source_file.to_io.path
 
     Rails.logger.debug "Unzipping presentation \"#{zip_file}\" to \"#{validation_job.working_directory}\"."
 
