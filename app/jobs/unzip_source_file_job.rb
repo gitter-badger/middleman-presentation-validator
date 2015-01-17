@@ -10,7 +10,7 @@ class UnzipSourceFileJob < ActiveJob::Base
 
     Rails.logger.debug "Unzipping presentation \"#{zip_file}\" to \"#{validation_job.working_directory}\"."
 
-    MiddlemanPresentationBuilder::Utils.unzip(zip_file, validation_job.working_directory)
+    MiddlemanPresentationValidator::Utils.unzip(zip_file, validation_job.working_directory)
 
     validation_job.progress[:unzipping] = true
 

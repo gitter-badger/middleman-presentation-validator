@@ -95,7 +95,7 @@ gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'pg'
 gem 'middleman-presentation-helpers', '~> 0.16.0.rc2', require: false
-gem 'refile'
+gem 'refile', require: ['refile/rails']
 gem 'pry-rails'
 # gem 'cells'
 # gem 'rspec-cells'

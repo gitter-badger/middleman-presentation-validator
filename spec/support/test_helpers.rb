@@ -13,7 +13,7 @@ module SpecHelpers
 
     def source_presentation_file_for(name)
       zip_file = absolute_path("#{name}.zip")
-      MiddlemanPresentationBuilder::Utils.zip(presentation_fixture_path(name), zip_file)
+      MiddlemanPresentationValidator::Utils.zip(presentation_fixture_path(name), zip_file)
 
       zip_file
     end

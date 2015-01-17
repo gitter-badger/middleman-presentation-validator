@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20150109200105) do
     t.datetime "updated_at",                        null: false
     t.datetime "start_time"
     t.datetime "stop_time"
-    t.string   "source_file"
+    t.string   "source_file_id"
     t.string   "callback_url"
     t.string   "aasm_state"
     t.string   "working_directory"

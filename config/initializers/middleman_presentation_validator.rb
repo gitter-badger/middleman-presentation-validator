@@ -14,7 +14,7 @@ require 'middleman_presentation_validator/presentation_config'
 require 'middleman_presentation_validator/uploader'
 require 'middleman_presentation_validator/command'
 
-module MiddlemanPresentationBuilder
+module MiddlemanPresentationValidator
 end
 
 Rails.configuration.x.build_timeout = 10.minutes

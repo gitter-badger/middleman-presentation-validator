@@ -12,16 +12,10 @@ class ValidationJobDecorator < Draper::Decorator
   def source_file_size
     return if source_file.blank?
 
-    format '(%s)', h.number_to_human_size(source_file.file.size, precision: 2)
+    format '(%s)', h.number_to_human_size(source_file.size, precision: 2)
   end
 
-  def build_file_size
-    return if build_file.blank?
-
-    format '(%s)', h.number_to_human_size(build_file.file.size, precision: 2)
-  end
-
-  def build_status(status = aasm_state.to_sym)
+  def validation_status(status = aasm_state.to_sym)
     case status
     when :created
       I18n.t('views.validation_jobs.build_status.created')
@@ -48,16 +42,10 @@ class ValidationJobDecorator < Draper::Decorator
     end
   end
 
-  def build_file_content
-    return if build_file.blank?
-
-    build_file.file.read
-  end
-
   def source_file_content
     return if source_file.blank?
 
-    source_file.file.read
+    source_file.read
   end
 
   def title

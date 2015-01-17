@@ -13,18 +13,18 @@ en:
       main_navigation:
         links: &links
           root: Home
-          validation_jobs: Build Jobs
-          new_validation_job: New Build Job
+          validation_jobs: Validation Jobs
+          new_validation_job: New Validation Job
       breadcrumbs:
         pretext: 'You are here:'
         links:
           <<: *links
     validation_jobs:
       new:
-        link: Create Build Job
-        headline: Create a new Build Job
+        link: Create Validation Job
+        headline: Create a new Validation Job
       destroy_all:
-        link: Delete All Build Jobs
+        link: Delete All Validation Jobs
       show:
         text:
           running: This one will be just prepared for you.

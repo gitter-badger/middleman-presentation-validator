@@ -24,12 +24,12 @@
       - unless job.source_file.blank?
         %span.fe-validation_job-source_file
           %i.fe-icon.fe-icon-slim.fe-icon-color-grey.fe-icon-validation_job-source_file
-          = link_to BuildJob.human_attribute_name('source_file'), job.source_file.url
+          = link_to ValidationJob.human_attribute_name('source_file'), job.source_file.url
           = job.source_file_size
       - unless job.build_file.blank?
         %span.fe-validation_job-build_file
           %i.fe-icon.fe-icon-slim.fe-icon-color-grey.fe-icon-validation_job-build_file
-          = link_to BuildJob.human_attribute_name('build_file'), job.build_file.url
+          = link_to ValidationJob.human_attribute_name('build_file'), job.build_file.url
           = job.build_file_size
       %span.fe-validation_job-build_status
         %i.fe-icon.fe-icon-slim.fe-icon-color-grey.fe-icon-validation_job-build_status

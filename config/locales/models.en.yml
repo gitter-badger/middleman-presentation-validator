@@ -13,4 +13,4 @@ en:
         result: Result
         error_message: Error Message
     models:
-      validation_job: Build Job
+      validation_job: Validation Job

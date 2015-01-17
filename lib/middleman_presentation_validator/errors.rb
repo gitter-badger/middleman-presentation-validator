@@ -1,4 +1,4 @@
 # encoding: utf-8
-module MiddlemanPresentationBuilder
+module MiddlemanPresentationValidator
   class InvalidRequestError < StandardError; end
 end
