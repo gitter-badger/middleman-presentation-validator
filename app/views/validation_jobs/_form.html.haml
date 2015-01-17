@@ -1,11 +1,11 @@
 - content_for :navigation_actions do
   = render partial: 'actions'
 
-- breadcrumb :new_build_job
+- breadcrumb :new_validation_job
 
-= form_for(@build_job, html: { class: 'fe-form' }) do |f|
-  - if @build_job.errors.any?
-    render partial:'errors/saved_object', object: @build_job
+= form_for(@validation_job, html: { class: 'fe-form' }) do |f|
+  - if @validation_job.errors.any?
+    render partial:'errors/saved_object', object: @validation_job
 
   .fe-form-field
     = f.label :source_file, BuildJob.human_attribute_name(:source_file), class: 'fe-form-label'
@@ -14,5 +14,5 @@
     = f.label :add_static_servers, BuildJob.human_attribute_name(:add_static_servers), class: 'fe-form-label'
     = f.check_box :add_static_servers, class: 'fe-form-file-field'
   .fe-form-field
-    = f.submit t('views.build_jobs.new.link'), class: 'fe-button-new'
+    = f.submit t('views.validation_jobs.new.link'), class: 'fe-button-new'
 

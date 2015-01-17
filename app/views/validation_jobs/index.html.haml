@@ -1,7 +1,7 @@
 - content_for :navigation_actions do
   = render partial: 'actions'
 
-- breadcrumb :build_jobs
+- breadcrumb :validation_jobs
 
 %section.fe-top-left-content
-  = render partial: 'job', collection: @build_jobs
+  = render partial: 'job', collection: @validation_jobs

@@ -1,46 +1,46 @@
 %h1
-  = @build_job.title
+  = @validation_job.title
 
-= render partial: 'shared/progress/build_job', object: @build_job
+= render partial: 'shared/progress/validation_job', object: @validation_job
 
 %ul.fe-item-details
   %li.fe-show-field
-    %i.fe-build_job-image-start_time
+    %i.fe-validation_job-image-start_time
     %h1
       = BuildJob.human_attribute_name 'start_time'
-    = @build_job.start_time
+    = @validation_job.start_time
   %li.fe-show-field
-    %i.fe-build_job-image-stop_time
+    %i.fe-validation_job-image-stop_time
     %h1
       = BuildJob.human_attribute_name 'stop_time'
-    = @build_job.stop_time
+    = @validation_job.stop_time
   %li.fe-show-field
-    %i.fe-build_job-image-duration
+    %i.fe-validation_job-image-duration
     %h1
       = BuildJob.human_attribute_name 'duration'
-    = @build_job.duration
+    = @validation_job.duration
   %li.fe-show-field
-    %i.fe-build_job-image-build_status
+    %i.fe-validation_job-image-build_status
     %h1
       = BuildJob.human_attribute_name 'build_status'
-    = @build_job.build_status
-  - unless @build_job.source_file.blank?
+    = @validation_job.build_status
+  - unless @validation_job.source_file.blank?
     %li.fe-show-field
-      %i.fe-build_job-image-source_file
+      %i.fe-validation_job-image-source_file
       %h1
         = BuildJob.human_attribute_name 'source_file'
-      = link_to BuildJob.human_attribute_name('source_file'), @build_job.source_file.url
-      = @build_job.source_file_size
-  - unless @build_job.build_file.blank?
+      = link_to BuildJob.human_attribute_name('source_file'), @validation_job.source_file.url
+      = @validation_job.source_file_size
+  - unless @validation_job.build_file.blank?
     %li.fe-show-field
-      %i.fe-build_job-image-build_file
+      %i.fe-validation_job-image-build_file
       %h1
         = BuildJob.human_attribute_name 'build_file'
-      = link_to BuildJob.human_attribute_name('build_file'), @build_job.build_file.url
-      = @build_job.build_file_size
+      = link_to BuildJob.human_attribute_name('build_file'), @validation_job.build_file.url
+      = @validation_job.build_file_size
 %ul.fe-item-details
   %li.fe-show-field.fe-show-field-blank
     %h1
       = BuildJob.human_attribute_name 'Output'
-    %code.fe-build_job-output
-      = simple_format(@build_job.output)
+    %code.fe-validation_job-output
+      = simple_format(@validation_job.output)

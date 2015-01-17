@@ -1,9 +1,9 @@
-- breadcrumb :build_job, @build_job
+- breadcrumb :validation_job, @validation_job
 
 - content_for :navigation_actions do
   = render partial: 'actions'
 
-- if @build_job.completed? || @build_job.failed?
+- if @validation_job.completed? || @validation_job.failed?
   %section.fe-top-content
     = render partial: 'finshed'
 - else
