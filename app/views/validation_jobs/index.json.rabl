@@ -1,2 +1,2 @@
-collection @build_jobs
-extends 'build_jobs/show'
+collection @validation_jobs
+extends 'validation_jobs/show'

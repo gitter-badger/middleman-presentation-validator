@@ -1,4 +1,4 @@
-object @build_job
+object @validation_job
 attributes :id, :start_time, :stop_time, :build_status, :duration
 
 node(:start_file) do |job| 

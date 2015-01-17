@@ -1,11 +1,11 @@
-.fe-build_jobs-image-running {
+.fe-validation_jobs-image-running {
   @extend i.fe-icon;
-  @extend .fe-icon-build_job-running;
+  @extend .fe-icon-validation_job-running;
   @extend .fe-icon-absolute-bigger;
   color: $fe-color-grey-light;
 }
 
-.fe-build_job-output {
+.fe-validation_job-output {
 //  white-space: pre-wrap;
   max-width: 800px;
   width: 60vw;
@@ -55,7 +55,7 @@
   border: 1px solid $fe-color-transparent;
 }
 
-.fe-build_job-overview {
+.fe-validation_job-overview {
   display: flex;
   flex-direction: row;
   list-style: none;
@@ -63,7 +63,7 @@
   justify-content: center;
 }
 
-.fe-build_job-overview-items {
+.fe-validation_job-overview-items {
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -71,58 +71,58 @@
   padding: 0px;
 }
 
-.fe-build_job-overview-row {
+.fe-validation_job-overview-row {
   display: flex;
   flex-direction: row;
   list-style: none;
   font-weigth: bold;
 }
 
-.fe-build_job-start_time {
+.fe-validation_job-start_time {
   @extend .fe-item-metadata;
 }
 
-.fe-build_job-stop_time {
+.fe-validation_job-stop_time {
   @extend .fe-item-metadata;
 }
 
-.fe-build_job-build_status {
+.fe-validation_job-build_status {
   @extend .fe-item-metadata;
 }
 
-.fe-build_job-duration {
+.fe-validation_job-duration {
   @extend .fe-item-metadata;
 }
 
-.fe-build_job-source_file a:link,
-.fe-build_job-source_file a:visited,
-.fe-build_job-source_file a:focus,
-.fe-build_job-source_file a:active {
+.fe-validation_job-source_file a:link,
+.fe-validation_job-source_file a:visited,
+.fe-validation_job-source_file a:focus,
+.fe-validation_job-source_file a:active {
   color: $fe-color-grey-darker;
   text-decoration: none;
 }
 
-.fe-build_job-source_file a:hover {
+.fe-validation_job-source_file a:hover {
   color: $fe-color-black;
 }
 
-.fe-build_job-source_file {
+.fe-validation_job-source_file {
   @extend .fe-item-metadata;
 }
 
-.fe-build_job-build_file a:link,
-.fe-build_job-build_file a:visited,
-.fe-build_job-build_file a:focus,
-.fe-build_job-build_file a:active {
+.fe-validation_job-build_file a:link,
+.fe-validation_job-build_file a:visited,
+.fe-validation_job-build_file a:focus,
+.fe-validation_job-build_file a:active {
   color: $fe-color-grey-darker;
   text-decoration: none;
 }
 
-.fe-build_job-build_file a:hover {
+.fe-validation_job-build_file a:hover {
   color: $fe-color-black;
 }
 
-.fe-build_job-build_file {
+.fe-validation_job-build_file {
   @extend .fe-item-metadata;
 }
 
@@ -162,7 +162,7 @@
   padding: 5px;
 }
 
-.fe-build_job-progress-status-name {
+.fe-validation_job-progress-status-name {
   display: flex;
   flex:1;
 }
