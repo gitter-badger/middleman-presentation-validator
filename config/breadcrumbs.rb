@@ -6,6 +6,11 @@ crumb :validation_jobs do
   link I18n.t('views.application.main_navigation.links.validation_jobs'), validation_jobs_path
 end
 
+crumb :edit_validation_job do |validation_job|
+  link validation_job.short_title, validation_job_path(validation_job)
+  parent :validation_jobs
+end
+
 crumb :new_validation_job do |validation_job|
   link I18n.t('views.application.breadcrumbs.links.new_validation_job')
   parent :validation_jobs

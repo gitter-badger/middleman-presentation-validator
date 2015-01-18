@@ -18,17 +18,21 @@ class ValidationJobDecorator < Draper::Decorator
   def validation_status(status = aasm_state.to_sym)
     case status
     when :created
-      I18n.t('views.validation_jobs.build_status.created')
+      I18n.t('views.validation_jobs.validation_status.created')
+    when :preparing_environment
+      I18n.t('views.validation_jobs.validation_status.preparing_environment')
     when :unzipping
-      I18n.t('views.validation_jobs.build_status.unzipping')
+      I18n.t('views.validation_jobs.validation_status.unzipping')
     when :validating
-      I18n.t('views.validation_jobs.build_status.validating')
+      I18n.t('views.validation_jobs.validation_status.validating')
     when :cleaning_up
-      I18n.t('views.validation_jobs.build_status.cleaning_up')
+      I18n.t('views.validation_jobs.validation_status.cleaning_up')
+    when :calling_back
+      I18n.t('views.validation_jobs.validation_status.calling_back')
     when :failed
-      I18n.t('views.validation_jobs.build_status.failed')
+      I18n.t('views.validation_jobs.validation_status.failed')
     when :completed
-      I18n.t('views.validation_jobs.build_status.completed')
+      I18n.t('views.validation_jobs.validation_status.completed')
     else
       fail "Invalid state #{aasm_state}"
     end

@@ -22,11 +22,13 @@ ActiveRecord::Schema.define(version: 20150109200105) do
     t.datetime "updated_at",                        null: false
     t.datetime "start_time"
     t.datetime "stop_time"
+    t.boolean  "valid_presentation", default: false
     t.string   "source_file_id"
     t.string   "callback_url"
     t.string   "aasm_state"
     t.string   "working_directory"
     t.string   "progress"
+    t.string   "checksum"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|

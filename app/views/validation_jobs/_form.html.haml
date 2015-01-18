@@ -1,14 +1,18 @@
 - content_for :navigation_actions do
   = render partial: 'actions'
 
-- breadcrumb :new_validation_job
-
 = form_for(@validation_job, html: { class: 'fe-form' }) do |f|
   - if @validation_job.errors.any?
     = render partial:'errors/saved_object', object: @validation_job
 
   .fe-form-field
-    = f.attachment_field :source_file, class: 'fe-form-file-field'
+    = f.label :source_file, @validation_job.class.human_attribute_name(:source_file), class: 'fe-form-label'
+    = f.attachment_field :source_file, class: 'fe-form-file-field', required: true
+
   .fe-form-field
-    = f.submit t('views.validation_jobs.new.link'), class: 'fe-button-new'
+    = f.label :callback_url, @validation_job.class.human_attribute_name(:callback_url), class: 'fe-form-label'
+    = f.url_field :callback_url, class: 'fe-form-file-field'
+
+  .fe-form-field
+    = f.submit t('views.application.buttons.save'), class: 'fe-button-new'
 

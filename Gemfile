@@ -37,6 +37,10 @@ group :development, :test do
   gem 'byebug'
   gem 'pry'
   gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'pry-rescue'
+  gem 'pry-stack_explorer'
+  gem 'pry-clipboard'
 
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
@@ -89,17 +93,18 @@ gem 'browser_details'
 gem 'geo_pattern'
 gem 'fedux_org-stdlib', '~> 0.11.8', require: false
 gem 'ruby-filemagic'
-gem 'faraday'
+gem 'excon'
 gem 'aasm'
 gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'pg'
 gem 'middleman-presentation-helpers', '~> 0.16.0.rc2', require: false
-gem 'refile', require: ['refile/rails']
-gem 'pry-rails'
-gem 'pry-rescue'
-gem 'pry-stack_explorer'
-gem 'pry-clipboard'
+gem 'refile', '~> 0.5.3', require: ['refile/rails']
+
+gem 'validate_url'
 
 # gem 'cells'
 # gem 'rspec-cells'
+gem 'foreman'
+gem 'sinatra'
+gem 'tilt-jbuilder'

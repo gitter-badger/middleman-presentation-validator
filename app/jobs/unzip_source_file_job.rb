@@ -18,6 +18,7 @@ class UnzipSourceFileJob < ActiveJob::Base
   rescue => err
     Rails.logger.fatal "Error occured while unzipping \"#{zip_file}\": #{err.message}\n#{err.backtrace.join("\n")}"
     validation_job.progress[:unzipping] = false
+    validation_job.output = err.message
     validation_job.stop_time = Time.now
     validation_job.error_occured!
   end

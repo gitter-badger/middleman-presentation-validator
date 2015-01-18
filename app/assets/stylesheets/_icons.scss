@@ -162,6 +162,16 @@ i.fe-icon-start {
   content: "\f085";
 }
 
+.fe-icon-validation_job-completed:before {
+  // fa-check-circle-o
+  content: "\f05d";
+}
+
+.fe-icon-validation_job-failed:before {
+  //  fa-times-circle-o
+  content: "\f05c";
+}
+
 .fe-icon-validation_job-start_time:before {
   // fa-flag-o
   content: "\f11d";
@@ -177,7 +187,7 @@ i.fe-icon-start {
   content: "\f017";
 }
 
-.fe-icon-validation_job-build_status:before {
+.fe-icon-validation_job-validation_status:before {
   // fa-cogs
   content: "\f085";
 }
@@ -195,6 +205,16 @@ i.fe-icon-start {
 .fe-icon-item-new:before {
   // fa-asterisk
   content: "\f069";
+}
+
+.fe-icon-item-restart:before {
+  // fa-refresh
+  content: "\f021";
+}
+
+.fe-icon-item-edit:before {
+  // fa-pencil
+  content: "\f040";
 }
 
 .fe-icon-item-destroy:before {

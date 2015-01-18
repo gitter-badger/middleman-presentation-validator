@@ -10,11 +10,13 @@ en:
       buttons:
         destroy: Delete
         create: New
+        save: Save
       main_navigation:
         links: &links
           root: Home
           validation_jobs: Validation Jobs
           new_validation_job: New Validation Job
+          edit_validation_job: '#%{number}'
       breadcrumbs:
         pretext: 'You are here:'
         links:
@@ -23,13 +25,24 @@ en:
       new:
         link: Create Validation Job
         headline: Create a new Validation Job
+      destroy:
+        link: Destroy Validation Job
+      edit:
+        link: Edit Validation Job
+        headline: Edit Validation Job #%{number}
       destroy_all:
         link: Delete All Validation Jobs
+      restart:
+        link: Restart Validation Job
       show:
         text:
           running: This one will be just prepared for you.
-      build_status:
+          valid: This presentation was successfully validated. You did a great job!
+          invalid: Sorry, but the validation of this presentation failed. Please fix it and try again.
+      validation_status:
         created: Created
+        preparing_environment: Preparing Environment
+        calling_back: Invoke callback url
         unzipping: Unzipping Presentation Source File
         zipping: Zipping Built Presentation
         validating: Validating Presentation

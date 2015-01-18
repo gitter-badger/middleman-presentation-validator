@@ -13,6 +13,7 @@ class CleanupValidationJob < ActiveJob::Base
   rescue => err
     Rails.logger.fatal "Validation Job failed with #{err.message}\n\n#{err.backtrace.join("\n")}"
     validation_job.progress[:cleaning_up] = false
+    validation_job.output = err.message
     validation_job.stop_time = Time.now
     validation_job.error_occured!
   end

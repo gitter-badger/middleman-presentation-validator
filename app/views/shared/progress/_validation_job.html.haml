@@ -2,7 +2,7 @@
   - validation_job.progress.each do |key, value|
     %li.fe-progress-item
       %span.fe-validation_job-progress-status-name
-        = validation_job.build_status key.to_sym
+        = validation_job.validation_status key.to_sym
       - if value == true
         %i.fe-icon.fe-icon-start.fe-icon-color-grey.fe-icon-absolute-normaler.fe-icon-validation_job-progress-passed
       - elsif value == false

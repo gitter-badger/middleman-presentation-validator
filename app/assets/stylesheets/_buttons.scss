@@ -17,6 +17,30 @@
   margin-right: 3px;
 }
 
+.fe-button-restart {
+  @extend .btn;
+  @extend .btn-default;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.fe-button-edit {
+  @extend .btn;
+  @extend .btn-default;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.fe-button-slim-restart {
+  @extend .fe-button-restart;
+  @extend .btn-xs;
+}
+
+.fe-button-slim-edit {
+  @extend .fe-button-edit;
+  @extend .btn-xs;
+}
+
 .fe-button-slim-new {
   @extend .fe-button-new;
   @extend .btn-xs;
@@ -50,6 +74,16 @@
 
 .fe-button-slim-new i.fe-icon-item-new:before {
   color: $fe-color-white;
+  line-height: 1.1rem;
+}
+
+.fe-button-slim-edit i.fe-icon-item-edit:before {
+  color: $fe-color-black;
+  line-height: 1.1rem;
+}
+
+.fe-button-slim-restart i.fe-icon-item-restart:before {
+  color: $fe-color-black;
   line-height: 1.1rem;
 }
 

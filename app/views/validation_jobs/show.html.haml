@@ -3,6 +3,9 @@
 - content_for :navigation_actions do
   = render partial: 'actions'
 
+- content_for :navigation_actions_local do
+  = render partial: 'actions_job'
+
 - if @validation_job.completed? || @validation_job.failed?
   %section.fe-top-content
     = render partial: 'finshed'

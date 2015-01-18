@@ -1,0 +1,9 @@
+%h1
+  = t('views.validation_jobs.edit.headline')
+
+- breadcrumb :edit_validation_job, @validation_job
+
+- content_for :navigation_actions_local do
+  = render partial: 'actions_job'
+
+= render 'form'

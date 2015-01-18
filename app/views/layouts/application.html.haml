@@ -21,7 +21,10 @@
         = render partial: 'shared/navigation'
         %li.fe-navigation-actions
           = yield :navigation_actions
-      = breadcrumbs class: 'fe-navigation-breadcrumbs', current_class: 'fe-navigation-breadcrumbs-current', fragment_class: 'fe-navigation-breadcrumbs-links', pretext_class: 'fe-navigation-breadcrumbs-pretext', separator: '/'
+      .fe-navigation-subbar
+        = breadcrumbs class: 'fe-navigation-breadcrumbs', current_class: 'fe-navigation-breadcrumbs-current', fragment_class: 'fe-navigation-breadcrumbs-links', pretext_class: 'fe-navigation-breadcrumbs-pretext', separator: '/'
+        .fe-navigation-actions
+          = yield :navigation_actions_local
   %section.fe-content
     = yield
   %footer.fe-footer

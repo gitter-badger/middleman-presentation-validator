@@ -1,0 +1,61 @@
+#!/usr/bin/env ruby
+
+require 'sinatra/base'
+require 'json'
+
+class Webserver < Sinatra::Base
+  get '/*' do
+    result = []
+
+    result << 'Url'
+    result << parse_url
+
+    result << 'Query'
+    result << parse_query
+
+    $stderr.puts result.join "\n"
+  end
+
+  post '/*' do
+    result = []
+
+    result << 'Inspect'
+    result << params.inspect
+
+    result << 'Url'
+    result << parse_url
+
+    result << 'Query'
+    result << parse_query
+
+    result << 'Body'
+    if params.key?('json')
+      result << parse_json
+    else
+      result << parse_form
+    end
+
+    $stderr.puts result.join "\n"
+  end
+
+  private
+
+  def parse_json
+    request.body.rewind
+    JSON.parse(request.body.read).to_s
+  end
+
+  def parse_form
+    request.env['rack.request.form_hash'].to_s
+  end
+
+  def parse_query
+    request.env['rack.request.query_hash'].to_s
+  end
+
+  def parse_url
+    params[:splat].to_s
+  end
+end
+
+Webserver.run!

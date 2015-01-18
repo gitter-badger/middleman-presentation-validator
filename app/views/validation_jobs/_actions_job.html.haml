@@ -1,0 +1,9 @@
+= link_to restart_validation_job_path(@validation_job), class: 'fe-button-slim-restart' do
+  %i.fe-icon.fe-icon-slim.fe-icon-item-restart
+  = t('views.validation_jobs.restart.link')
+= link_to edit_validation_job_path(@validation_job), class: 'fe-button-slim-edit' do
+  %i.fe-icon.fe-icon-slim.fe-icon-item-edit
+  = t('views.validation_jobs.edit.link')
+= link_to validation_job_path(@validation_job), class: 'fe-button-slim-destroy', method: :delete, data: { confirm: 'Are you sure?' } do
+  %i.fe-icon.fe-icon-slim.fe-icon-item-destroy
+  = t('views.validation_jobs.destroy.link')

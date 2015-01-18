@@ -1,5 +1,5 @@
 class ValidationJobsController < ApplicationController
-  before_action :set_validation_job, only: [:show, :edit, :update, :destroy]
+  before_action :set_validation_job, only: [:show, :edit, :update, :destroy, :restart]
 
   # GET /validation_jobs
   # GET /validation_jobs.json
@@ -26,9 +26,20 @@ class ValidationJobsController < ApplicationController
   def edit
   end
 
+  def restart
+    @validation_job.restart!
+
+    respond_to do |format|
+      format.html { redirect_to @validation_job, notice: 'ValidationJob was successfully created.' }
+    end
+  end
+
   # POST /validation_jobs
   # POST /validation_jobs.json
   def create
+    checksum = Digest::SHA256.hexdigest params['validation_job']['source_file'].read
+    existing_job?(checksum) && return
+
     @validation_job = ValidationJob.new(validation_job_params)
 
     @validation_job.class.aasm.states.dup.delete_if { |s| %w(created completed failed) }.each do |s|
@@ -41,9 +52,8 @@ class ValidationJobsController < ApplicationController
 
     @validation_job.callback_url = params['validation_job']['callback_url']
     @validation_job.working_directory = Dir.mktmpdir('presentation')
-    @validation_job.save!
-
-    @validation_job.unzip!(@validation_job)
+    @validation_job.checksum = checksum
+    @validation_job.prepare_environment!
 
     respond_to do |format|
       if @validation_job.save
@@ -56,19 +66,18 @@ class ValidationJobsController < ApplicationController
     end
   end
 
-  ## PATCH/PUT /validation_jobs/1
-  ## PATCH/PUT /validation_jobs/1.json
-  #def update
-  #  respond_to do |format|
-  #    if @validation_job.update(validation_job_params)
-  #      format.html { redirect_to @validation_job, notice: 'ValidationJob was successfully updated.' }
-  #      format.json { render :show, status: :ok, location: @validation_job }
-  #    else
-  #      format.html { render :edit }
-  #      format.json { render json: @validation_job.errors, status: :unprocessable_entity }
-  #    end
-  #  end
-  #end
+  # PATCH/PUT /validation_jobs/1
+  def update
+    @validation_job.update(validation_job_params)
+
+    respond_to do |format|
+      if @validation_job.restart!
+        format.html { redirect_to @validation_job, notice: 'ValidationJob was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
 
   # DELETE /validation_jobs/1
   # DELETE /validation_jobs/1.json
@@ -100,5 +109,21 @@ class ValidationJobsController < ApplicationController
     def validation_job_params
       params.require(:validation_job).permit(:source_file, :callback_url)
     end
+
+    def find_job(checksum)
+      ValidationJob.where(checksum: checksum).first
+    end
+
+    def existing_job?(checksum)
+      validation_job = find_job(checksum)
+
+      unless validation_job.blank?
+        redirect_to validation_job
+        return true
+      end
+
+      false
+    end
+
 end
 

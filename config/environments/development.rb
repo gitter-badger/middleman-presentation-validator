@@ -45,7 +45,7 @@ Rails.application.configure do
 
   # Set queue adapter for backend processing
   # config.active_job.queue_adapter = :sidekiq
-  #config.active_job.queue_adapter = :delayed_job
+  config.active_job.queue_adapter = :delayed_job
 end
 
-Dotenv.load Rails.root.join('.env.test')
+Dotenv.load Rails.root.join('.env.development')

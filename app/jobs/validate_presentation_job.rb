@@ -13,11 +13,14 @@ class ValidatePresentationJob < ActiveJob::Base
     test has_middleman_config_file?(validation_job.working_directory), 'No middleman config file'
 
     validation_job.progress[:validating] = true
+    validation_job.valid_presentation = true
 
-    validation_job.cleanup! validation_job
+    validation_job.callback! validation_job
   rescue => err
     Rails.logger.fatal "Error occured while validating \"#{zip_file}\": #{err.message}\n\n#{err.backtrace.join("\n")}"
     validation_job.progress[:validating] = false
+    validation_job.valid_presentation = false
+    validation_job.output = err.message
     validation_job.stop_time = Time.now
     validation_job.error_occured!
   end

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources 'validation_jobs', only: [:show, :index, :destroy, :create, :new]
-  match 'validation_jobs', :to => 'validation_jobs#destroy_all', :via => :delete
+  resources 'validation_jobs'
+  match 'validation_jobs', to: 'validation_jobs#destroy_all', via: :delete
+
+  get '/validation_jobs/restart/:id' => 'validation_jobs#restart', as: 'restart_validation_job'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

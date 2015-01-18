@@ -3,6 +3,7 @@ $open-sans-path: 'open-sans/fonts';
 $inconsolata-path: 'inconsolata/fonts';
 
 @import "open-sans/scss/open-sans";
+@import "fontawesome/scss/font-awesome-sprockets";
 @import "fontawesome/scss/font-awesome";
 @import "inconsolata/scss/inconsolata";
 

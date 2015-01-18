@@ -20,12 +20,18 @@
 }
 
 .fe-navigation-bar,
-.fe-navigation-breadcrumbs {
+.fe-navigation-subbar {
+  display: flex;
+  flex-direction: row;
   background-color: $fe-color-grey-lightest;
   border: 1px solid $fe-color-grey-lighter;
   min-width: 100%;
   list-style: none;
   padding: 4px;
+}
+
+.fe-navigation-breadcrumbs {
+  display: flex;
 }
 
 .fe-navigation-links {

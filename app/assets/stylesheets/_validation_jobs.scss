@@ -5,6 +5,20 @@
   color: $fe-color-grey-light;
 }
 
+.fe-validation_jobs-image-success {
+  @extend i.fe-icon;
+  @extend .fe-icon-validation_job-completed;
+  @extend .fe-icon-absolute-bigger;
+  color: $fe-color-grey-light;
+}
+
+.fe-validation_jobs-image-failure {
+  @extend i.fe-icon;
+  @extend .fe-icon-validation_job-failed;
+  @extend .fe-icon-absolute-bigger;
+  color: $fe-color-grey-light;
+}
+
 .fe-validation_job-output {
 //  white-space: pre-wrap;
   max-width: 800px;
