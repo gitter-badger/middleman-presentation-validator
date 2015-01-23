@@ -3,7 +3,7 @@ class CallbackJob < ActiveJob::Base
 
   def perform(validation_job)
     if validation_job.callback_url.blank?
-      validation_job.cleanup!(:clean, validation_job)
+      validation_job.cleanup! validation_job
       return
     end
 
